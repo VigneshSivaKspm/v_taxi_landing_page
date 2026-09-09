@@ -1,14 +1,55 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   X,
   Send,
   CheckCircle2,
   Phone,
   MessageSquare,
+  ChevronDown,
   ShieldCheck,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { BOOKING_OFFICE, PRIMARY_SERVICE_AREAS } from "../data/landingData";
+
+const inputBase =
+  "w-full h-11 rounded-xl border border-slate-200 bg-slate-50 px-3.5 text-sm text-slate-800 placeholder:text-slate-400 focus:bg-white focus:border-crimson-400 focus:ring-4 focus:ring-crimson-500/10 focus:outline-none transition";
+
+function Label({ children, hint, required }) {
+  return (
+    <span className="mb-1.5 flex items-center gap-1 text-xs font-semibold text-slate-700">
+      {children}
+      {required && <span className="text-crimson-600">*</span>}
+      {hint && <span className="font-normal text-slate-400">{hint}</span>}
+    </span>
+  );
+}
+
+function GroupTitle({ children }) {
+  return (
+    <p className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-slate-400">
+      <span className="h-px w-4 bg-slate-300" />
+      {children}
+    </p>
+  );
+}
+
+function SelectField({ label, required, value, onChange, children }) {
+  return (
+    <label className="block min-w-0">
+      <Label required={required}>{label}</Label>
+      <div className="relative">
+        <select
+          value={value}
+          onChange={onChange}
+          className={`${inputBase} appearance-none pr-10 cursor-pointer`}
+        >
+          {children}
+        </select>
+        <ChevronDown className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+      </div>
+    </label>
+  );
+}
 
 export default function EnquiryModal({ isOpen, onClose, initialData = null }) {
   const [name, setName] = useState("");
@@ -19,22 +60,21 @@ export default function EnquiryModal({ isOpen, onClose, initialData = null }) {
   const [travelDate, setTravelDate] = useState("");
   const [tripType, setTripType] = useState("One Way");
   const [preferredVehicle, setPreferredVehicle] = useState("7-Seater SUV");
-  const [passengers, setPassengers] = useState(4);
+  const [passengers, setPassengers] = useState("3-4 Passengers");
   const [message, setMessage] = useState("");
   const [consent, setConsent] = useState(true);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const firstFieldRef = useRef(null);
 
   useEffect(() => {
-    if (initialData) {
-      if (initialData.pickupCity) setPickupCity(initialData.pickupCity);
-      if (initialData.destination) setDestination(initialData.destination);
-      if (initialData.tripType) setTripType(initialData.tripType);
-      if (initialData.vehicle) setPreferredVehicle(initialData.vehicle);
-      if (initialData.service)
-        setMessage(`Service enquiry: ${initialData.service}`);
-      if (initialData.specialOffer)
-        setMessage(`Offer interest: ${initialData.specialOffer}`);
-    }
+    if (!initialData) return;
+    if (initialData.pickupCity) setPickupCity(initialData.pickupCity);
+    if (initialData.destination) setDestination(initialData.destination);
+    if (initialData.tripType) setTripType(initialData.tripType);
+    if (initialData.vehicle) setPreferredVehicle(initialData.vehicle);
+    if (initialData.service) setMessage(`Service enquiry: ${initialData.service}`);
+    if (initialData.specialOffer)
+      setMessage(`Offer interest: ${initialData.specialOffer}`);
   }, [initialData]);
 
   useEffect(() => {
@@ -47,9 +87,11 @@ export default function EnquiryModal({ isOpen, onClose, initialData = null }) {
     };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
+    const t = setTimeout(() => firstFieldRef.current?.focus(), 120);
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      clearTimeout(t);
     };
   }, [isOpen, onClose]);
 
@@ -57,17 +99,9 @@ export default function EnquiryModal({ isOpen, onClose, initialData = null }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!consent) {
-      alert("Please check the consent box to proceed.");
-      return;
-    }
-
+    if (!consent) return;
     setIsSubmitted(true);
-    confetti({
-      particleCount: 80,
-      spread: 60,
-      origin: { y: 0.6 },
-    });
+    confetti({ particleCount: 90, spread: 65, origin: { y: 0.4 } });
   };
 
   const handleClose = () => {
@@ -75,245 +109,268 @@ export default function EnquiryModal({ isOpen, onClose, initialData = null }) {
     onClose();
   };
 
+  const waHref = `https://wa.me/${BOOKING_OFFICE.whatsapp}?text=${encodeURIComponent(
+    `Hi V TAXI, I just registered an enquiry. Name: ${name || "-"}, Route: ${pickupCity} to ${destination}`
+  )}`;
+
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-navy-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 animate-fade-up"
+      className="fixed inset-0 z-50 flex items-end justify-center bg-ink/70 backdrop-blur-md p-0 sm:items-center sm:p-4 animate-fade-up"
       onClick={handleClose}
       role="presentation"
     >
       <div
-        className="relative w-full max-w-xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-6 animate-scale-in"
+        className="relative flex w-full min-w-0 max-w-full max-h-[92vh] flex-col overflow-hidden rounded-t-3xl border border-slate-200 bg-white shadow-2xl animate-fade-up sm:max-w-lg sm:max-h-[88vh] sm:rounded-3xl"
         onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label="V TAXI travel enquiry"
       >
-        {/* Top Header */}
-        <div className="v-gradient-crimson text-white px-6 py-4 flex items-center justify-between">
-          <div>
-            <span className="text-[10px] font-extrabold uppercase tracking-widest bg-white/20 px-2 py-0.5 rounded text-white">
-              V TAXI PRE-LAUNCH ENQUIRY
+        {/* drag handle (mobile) */}
+        <div className="mx-auto mt-2.5 h-1 w-10 shrink-0 rounded-full bg-slate-200 sm:hidden" />
+
+        {/* Header */}
+        <div className="flex shrink-0 items-start justify-between gap-3 px-5 pt-4 pb-4 sm:px-7 sm:pt-6">
+          <div className="min-w-0">
+            <span className="block h-9 aspect-[43/20] overflow-hidden rounded-md">
+              <img
+                src="/logo.png"
+                alt="V TAXI — The People's Choice"
+                className="h-full w-full object-cover object-center"
+              />
             </span>
-            <h3 className="text-lg font-black tracking-tight text-white mt-0.5">
-              Plan Your Journey with V TAXI
+            <h3 className="mt-2.5 font-display text-lg leading-tight text-navy-900">
+              Plan your journey
             </h3>
+            <p className="mt-0.5 text-xs text-slate-500">
+              Pre-launch enquiry · our office calls you back
+            </p>
           </div>
           <button
             onClick={handleClose}
-            className="p-2 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition"
-            aria-label="Close modal"
+            className="-mr-1 -mt-1 shrink-0 rounded-full p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+            aria-label="Close"
           >
-            <X className="w-5 h-5" />
+            <X className="h-5 w-5" />
           </button>
         </div>
 
-        {/* Modal Content */}
-        <div className="p-6 max-h-[82vh] overflow-y-auto">
-          {!isSubmitted ? (
+        {!isSubmitted ? (
+          <>
+            {/* Body */}
             <form
+              id="enquiry-modal-form"
               onSubmit={handleSubmit}
-              className="space-y-4 text-xs sm:text-sm"
+              className="min-w-0 flex-1 space-y-7 overflow-y-auto overflow-x-hidden border-t border-slate-100 px-5 py-6 sm:px-7"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Full Name <span className="text-crimson-600">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. Ramesh Kumar"
-                    className="w-full p-3 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-crimson-500/15 focus:border-crimson-400 font-medium transition"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Mobile Number <span className="text-crimson-600">*</span>
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    value={mobile}
-                    onChange={(e) => setMobile(e.target.value)}
-                    placeholder="e.g. 098400 00000"
-                    className="w-full p-3 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-crimson-500/15 focus:border-crimson-400 font-medium transition"
-                  />
-                </div>
-              </div>
-
+              {/* Contact */}
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Email Address{" "}
-                  <span className="text-slate-400 font-normal">(Optional)</span>
-                </label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="e.g. ramesh@example.com"
-                  className="w-full p-3 rounded-xl border border-slate-300 bg-slate-50 focus:bg-white focus:outline-none focus:ring-4 focus:ring-crimson-500/15 focus:border-crimson-400 font-medium transition"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Pickup City <span className="text-crimson-600">*</span>
+                <GroupTitle>Your details</GroupTitle>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <label className="block min-w-0">
+                      <Label required>Full name</Label>
+                      <input
+                        ref={firstFieldRef}
+                        type="text"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Ramesh Kumar"
+                        className={inputBase}
+                      />
+                    </label>
+                    <label className="block min-w-0">
+                      <Label required>Mobile number</Label>
+                      <input
+                        type="tel"
+                        required
+                        value={mobile}
+                        onChange={(e) => setMobile(e.target.value)}
+                        placeholder="098400 00000"
+                        className={inputBase}
+                      />
+                    </label>
+                  </div>
+                  <label className="block min-w-0">
+                    <Label hint="(optional)">Email address</Label>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="ramesh@example.com"
+                      className={inputBase}
+                    />
                   </label>
-                  <select
-                    value={pickupCity}
-                    onChange={(e) => setPickupCity(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border border-slate-300 bg-slate-50 font-medium text-xs"
-                  >
-                    {PRIMARY_SERVICE_AREAS.map((a, i) => (
-                      <option key={i} value={a.name}>
-                        {a.name}
-                      </option>
-                    ))}
-                    <option value="Other Tamil Nadu City">
-                      Other Tamil Nadu City
-                    </option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Destination <span className="text-crimson-600">*</span>
-                  </label>
-                  <select
-                    value={destination}
-                    onChange={(e) => setDestination(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border border-slate-300 bg-slate-50 font-medium text-xs"
-                  >
-                    {PRIMARY_SERVICE_AREAS.map((a, i) => (
-                      <option key={i} value={a.name}>
-                        {a.name}
-                      </option>
-                    ))}
-                    <option value="Kumbakonam">Kumbakonam</option>
-                    <option value="Tirunelveli">Tirunelveli</option>
-                    <option value="Other Destination">Other Destination</option>
-                  </select>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Trip Type
-                  </label>
-                  <select
-                    value={tripType}
-                    onChange={(e) => setTripType(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border border-slate-300 bg-slate-50 font-medium text-xs"
-                  >
-                    <option value="One Way">One Way</option>
-                    <option value="Round Trip">Round Trip</option>
-                    <option value="Local">Local City Ride</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Preferred Vehicle
-                  </label>
-                  <select
-                    value={preferredVehicle}
-                    onChange={(e) => setPreferredVehicle(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border border-slate-300 bg-slate-50 font-medium text-xs"
-                  >
-                    <option value="5-Seater Sedan">5-Seater Sedan</option>
-                    <option value="7-Seater SUV">7-Seater SUV</option>
-                    <option value="Premium SUV">Premium SUV</option>
-                    <option value="Tempo Traveller">Tempo Traveller</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Travel Date
-                  </label>
-                  <input
-                    type="date"
-                    value={travelDate}
-                    onChange={(e) => setTravelDate(e.target.value)}
-                    className="w-full p-2.5 rounded-xl border border-slate-300 bg-slate-50 font-medium text-xs"
-                  />
-                </div>
-              </div>
-
+              {/* Trip */}
               <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Message or Special Requirement
-                </label>
+                <GroupTitle>Trip details</GroupTitle>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <SelectField
+                      label="Pickup city"
+                      required
+                      value={pickupCity}
+                      onChange={(e) => setPickupCity(e.target.value)}
+                    >
+                      {PRIMARY_SERVICE_AREAS.map((a) => (
+                        <option key={a.name} value={a.name}>
+                          {a.name}
+                        </option>
+                      ))}
+                      <option value="Other Tamil Nadu City">
+                        Other Tamil Nadu City
+                      </option>
+                    </SelectField>
+                    <SelectField
+                      label="Destination"
+                      required
+                      value={destination}
+                      onChange={(e) => setDestination(e.target.value)}
+                    >
+                      {PRIMARY_SERVICE_AREAS.map((a) => (
+                        <option key={a.name} value={a.name}>
+                          {a.name}
+                        </option>
+                      ))}
+                      <option value="Kumbakonam">Kumbakonam</option>
+                      <option value="Tirunelveli">Tirunelveli</option>
+                      <option value="Other Destination">Other Destination</option>
+                    </SelectField>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <SelectField
+                      label="Trip type"
+                      value={tripType}
+                      onChange={(e) => setTripType(e.target.value)}
+                    >
+                      <option value="One Way">One way</option>
+                      <option value="Round Trip">Round trip</option>
+                      <option value="Local">Local city ride</option>
+                    </SelectField>
+                    <SelectField
+                      label="Preferred vehicle"
+                      value={preferredVehicle}
+                      onChange={(e) => setPreferredVehicle(e.target.value)}
+                    >
+                      <option value="5-Seater Sedan">5-Seater Sedan</option>
+                      <option value="7-Seater SUV">7-Seater SUV</option>
+                      <option value="Premium SUV">Premium SUV</option>
+                      <option value="Tempo Traveller">Tempo Traveller</option>
+                    </SelectField>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <SelectField
+                      label="Passengers"
+                      value={passengers}
+                      onChange={(e) => setPassengers(e.target.value)}
+                    >
+                      <option>1-2 Passengers</option>
+                      <option>3-4 Passengers</option>
+                      <option>5-6 Passengers</option>
+                      <option>7+ Passengers</option>
+                      <option>12+ Passengers</option>
+                    </SelectField>
+                    <label className="block min-w-0">
+                      <Label hint="(optional)">Travel date</Label>
+                      <input
+                        type="date"
+                        value={travelDate}
+                        onChange={(e) => setTravelDate(e.target.value)}
+                        className={`${inputBase} cursor-pointer`}
+                      />
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              {/* Notes */}
+              <div>
+                <GroupTitle>Anything else?</GroupTitle>
                 <textarea
-                  rows="2"
+                  rows="3"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="e.g. Flight arrival timing, pickup landmark, luggage details..."
-                  className="w-full p-2.5 rounded-xl border border-slate-300 bg-slate-50 font-medium text-xs"
-                ></textarea>
+                  placeholder="Flight timing, pickup landmark, luggage, temple stops…"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-3 text-sm text-slate-800 placeholder:text-slate-400 focus:bg-white focus:border-crimson-400 focus:ring-4 focus:ring-crimson-500/10 focus:outline-none transition"
+                />
               </div>
 
-              {/* Consent Checkbox */}
-              <div className="flex items-start gap-2.5 p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <label className="flex cursor-pointer items-start gap-3 rounded-xl bg-slate-50 p-3.5">
                 <input
                   type="checkbox"
-                  id="modalConsent"
                   checked={consent}
                   onChange={(e) => setConsent(e.target.checked)}
-                  className="mt-0.5 w-4 h-4 rounded text-crimson-600 focus:ring-crimson-500 cursor-pointer"
+                  className="mt-0.5 h-4 w-4 rounded border-slate-300 text-crimson-600 focus:ring-crimson-500"
                 />
-                <label
-                  htmlFor="modalConsent"
-                  className="text-xs text-slate-600 leading-relaxed cursor-pointer"
-                >
-                  By submitting this form, I agree to be contacted by V TAXI
-                  regarding my enquiry, launch updates and relevant offers.
-                </label>
-              </div>
-
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  className="btn-shine w-full py-3.5 px-4 rounded-xl v-gradient-crimson text-white font-extrabold text-sm shadow-glow-crimson hover:brightness-105 transition flex items-center justify-center gap-2"
-                >
-                  <Send className="w-4 h-4" />
-                  <span>Register My Interest</span>
-                </button>
-              </div>
+                <span className="text-xs leading-relaxed text-slate-600">
+                  I agree to be contacted by V TAXI about my enquiry, launch
+                  updates and relevant offers.
+                </span>
+              </label>
             </form>
-          ) : (
-            <div className="text-center py-6 space-y-4">
-              <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                <CheckCircle2 className="w-8 h-8" />
-              </div>
-              <h4 className="text-xl font-black text-navy-900">
-                Enquiry Received Successfully!
-              </h4>
-              <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
-                Thank you for choosing V TAXI. Your enquiry has been received
-                successfully. Our team will contact you shortly.
-              </p>
 
-              <div className="pt-2 flex flex-col sm:flex-row justify-center gap-2">
-                <a
-                  href={`tel:${BOOKING_OFFICE.phone1Raw}`}
-                  className="px-4 py-2.5 rounded-xl bg-navy-900 text-white font-bold text-xs flex items-center justify-center gap-1.5"
-                >
-                  <Phone className="w-3.5 h-3.5 text-crimson-400" />
-                  <span>Call {BOOKING_OFFICE.phone1}</span>
-                </a>
-                <button
-                  onClick={handleClose}
-                  className="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs"
-                >
-                  Close Window
-                </button>
-              </div>
+            {/* Footer */}
+            <div className="shrink-0 border-t border-slate-100 bg-white px-5 py-4 sm:px-7">
+              <button
+                type="submit"
+                form="enquiry-modal-form"
+                disabled={!consent}
+                className="btn-shine flex h-12 w-full items-center justify-center gap-2 rounded-xl v-gradient-crimson text-sm font-extrabold text-white shadow-glow-crimson transition hover:brightness-105 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <Send className="h-4 w-4" />
+                <span>Register my interest</span>
+              </button>
+              <p className="mt-2.5 flex items-center justify-center gap-1.5 text-[11px] text-slate-400">
+                <ShieldCheck className="h-3.5 w-3.5" />
+                Used only to follow up on this enquiry. No spam.
+              </p>
             </div>
-          )}
-        </div>
+          </>
+        ) : (
+          <div className="flex-1 overflow-y-auto border-t border-slate-100 px-6 py-10 text-center">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 ring-8 ring-emerald-50/60">
+              <CheckCircle2 className="h-9 w-9" />
+            </div>
+            <h4 className="mt-5 font-display text-xl text-navy-900">
+              Enquiry received
+            </h4>
+            <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-slate-600">
+              Thank you for choosing V TAXI. Our booking office will review your
+              route ({pickupCity} → {destination}) and contact you shortly.
+            </p>
+
+            <div className="mx-auto mt-6 flex max-w-xs flex-col gap-2.5">
+              <a
+                href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+                className="flex h-11 items-center justify-center gap-2 rounded-xl bg-navy-900 text-xs font-bold text-white transition hover:bg-navy-800"
+              >
+                <Phone className="h-4 w-4 text-crimson-400" />
+                Call {BOOKING_OFFICE.phone1}
+              </a>
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-11 items-center justify-center gap-2 rounded-xl bg-[#25D366] text-xs font-bold text-white transition hover:brightness-105"
+              >
+                <MessageSquare className="h-4 w-4" />
+                Message on WhatsApp
+              </a>
+              <button
+                onClick={handleClose}
+                className="h-11 rounded-xl bg-slate-100 text-xs font-bold text-slate-700 transition hover:bg-slate-200"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

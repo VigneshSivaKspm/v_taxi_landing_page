@@ -26,19 +26,13 @@ export default function Footer({ onOpenEnquiry }) {
         <Reveal as="div" y={22} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl v-gradient-crimson flex items-center justify-center text-white font-display text-xl">
-                V
-              </div>
-              <div>
-                <span className="text-xl font-display text-white">
-                  V <span className="text-crimson-500">TAXI</span>
-                </span>
-                <p className="text-[11px] text-slate-400 font-medium">
-                  {BOOKING_OFFICE.tagline}
-                </p>
-              </div>
-            </div>
+            <span className="block h-12 aspect-[43/20] overflow-hidden rounded-lg bg-white shadow-sm">
+              <img
+                src="/logo.png"
+                alt="V TAXI — The People's Choice"
+                className="w-full h-full object-cover object-center"
+              />
+            </span>
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
               {BOOKING_OFFICE.brandMessage}

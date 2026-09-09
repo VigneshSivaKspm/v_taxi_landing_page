@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Phone, Menu, X, ArrowRight } from "lucide-react";
+import { Phone, Menu, X, ArrowRight, ChevronRight } from "lucide-react";
 import { BOOKING_OFFICE } from "../data/landingData";
 import Magnetic from "./Magnetic";
 
@@ -14,195 +14,218 @@ const NAV_LINKS = [
   ["contact", "Contact"],
 ];
 
+const Logo = ({ className = "h-10" }) => (
+  <span className={`block aspect-[43/20] overflow-hidden rounded-md ${className}`}>
+    <img
+      src="/logo.png"
+      alt="V TAXI — The People's Choice"
+      className="h-full w-full object-cover object-center"
+    />
+  </span>
+);
+
 export default function Navbar({ onOpenEnquiry }) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 24);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const scrollToSection = (id) => {
-    setMobileMenuOpen(false);
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const go = (id) => {
+    setMenuOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const solid = isScrolled || mobileMenuOpen;
-
   return (
     <>
-      {/* Top contact bar */}
-      <div className="bg-ink text-slate-300 text-xs py-2 px-4 relative z-50">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      {/* Announcement bar */}
+      <div className="border-b border-slate-200 bg-slate-50 px-4 py-2 text-xs text-slate-500">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <span className="inline-block w-2 h-2 rounded-full bg-crimson-500 animate-pulse" />
-            <span className="font-semibold text-white">
-              Pre-Launch Announcement:
+            <span className="h-1.5 w-1.5 rounded-full bg-crimson-500" />
+            <span className="font-semibold text-slate-700">
+              Official Pre-Launch
             </span>
-            <span className="hidden sm:inline text-slate-400">
-              Chennai • Trichy • Thanjavur • Madurai • Rameswaram
+            <span className="hidden text-slate-400 sm:inline">
+              Chennai · Trichy · Thanjavur · Madurai · Rameswaram
             </span>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="hidden md:inline text-slate-500">
-              Booking Office:
+          <div className="flex items-center gap-3">
+            <span className="hidden text-slate-400 md:inline">
+              Booking office
             </span>
             <a
               href={`tel:${BOOKING_OFFICE.phone1Raw}`}
-              className="flex items-center gap-1 text-white hover:text-amber-400 transition font-medium"
+              className="flex items-center gap-1.5 font-semibold text-slate-700 transition hover:text-crimson-600"
             >
-              <Phone className="w-3 h-3 text-crimson-400" />
-              <span>{BOOKING_OFFICE.phone1}</span>
+              <Phone className="h-3 w-3 text-crimson-500" />
+              {BOOKING_OFFICE.phone1}
             </a>
-            <span className="text-slate-700 hidden sm:inline">|</span>
+            <span className="hidden text-slate-300 sm:inline">|</span>
             <a
               href={`tel:${BOOKING_OFFICE.phone2Raw}`}
-              className="hidden sm:flex items-center gap-1 text-white hover:text-amber-400 transition font-medium"
+              className="hidden items-center gap-1.5 font-semibold text-slate-700 transition hover:text-crimson-600 sm:flex"
             >
-              <Phone className="w-3 h-3 text-crimson-400" />
-              <span>{BOOKING_OFFICE.phone2}</span>
+              <Phone className="h-3 w-3 text-crimson-500" />
+              {BOOKING_OFFICE.phone2}
             </a>
           </div>
         </div>
       </div>
 
-      {/* Sticky header */}
+      {/* Header */}
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
-          solid
-            ? "bg-white/80 backdrop-blur-xl shadow-lg shadow-slate-900/5 py-2.5 border-b border-slate-200/70"
-            : "bg-transparent py-4 border-b border-transparent"
+        className={`sticky top-0 z-40 border-b bg-white/85 backdrop-blur-xl transition-all duration-300 ${
+          isScrolled
+            ? "border-slate-200 py-2.5 shadow-[0_8px_30px_-12px_rgba(15,23,42,0.12)]"
+            : "border-transparent py-3.5"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl v-gradient-crimson flex items-center justify-center shadow-glow-crimson text-white font-display text-xl group-hover:scale-105 transition-transform">
-              V
-            </div>
-            <div>
-              <span
-                className={`text-2xl font-display leading-none block transition-colors ${
-                  solid ? "text-navy-900" : "text-white"
-                }`}
-              >
-                V <span className="text-crimson-500">TAXI</span>
-              </span>
-              <p
-                className={`text-[11px] font-medium tracking-wide transition-colors ${
-                  solid ? "text-slate-500" : "text-slate-300"
-                }`}
-              >
-                {BOOKING_OFFICE.tagline}
-              </p>
-            </div>
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+          <a
+            href="#home"
+            className="group shrink-0"
+            aria-label="V TAXI — The People's Choice"
+          >
+            <Logo className="h-9 transition-transform group-hover:scale-[1.03] sm:h-10" />
           </a>
 
-          {/* Desktop nav */}
-          <nav
-            className={`hidden lg:flex items-center gap-7 text-sm font-semibold transition-colors ${
-              solid ? "text-slate-700" : "text-slate-200"
-            }`}
-          >
+          <nav className="hidden items-center gap-7 text-sm font-semibold text-slate-600 lg:flex">
             {NAV_LINKS.map(([id, label]) => (
               <button
                 key={id}
-                onClick={() => scrollToSection(id)}
-                className="link-underline hover:text-crimson-500 transition-colors"
+                onClick={() => go(id)}
+                className="link-underline transition-colors hover:text-crimson-600"
               >
                 {label}
               </button>
             ))}
           </nav>
 
-          {/* Right actions */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden items-center gap-2.5 sm:flex">
             <a
               href={`tel:${BOOKING_OFFICE.phone2Raw}`}
-              className={`flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border font-bold text-xs transition ${
-                solid
-                  ? "border-slate-300 text-slate-800 hover:bg-slate-50"
-                  : "border-white/20 text-white hover:bg-white/10"
-              }`}
+              className="flex items-center gap-1.5 rounded-xl border border-slate-200 px-3.5 py-2.5 text-xs font-bold text-slate-700 transition hover:border-slate-300 hover:bg-slate-50"
             >
-              <Phone className="w-3.5 h-3.5 text-crimson-500" />
-              <span>Call Us</span>
+              <Phone className="h-3.5 w-3.5 text-crimson-600" />
+              Call Us
             </a>
             <Magnetic strength={0.3}>
               <button
                 onClick={() => onOpenEnquiry()}
-                className="btn-shine flex items-center gap-2 px-4 py-2.5 rounded-xl v-gradient-crimson text-white font-bold text-xs shadow-glow-crimson hover:brightness-105 active:scale-95 transition"
+                className="btn-shine flex items-center gap-2 rounded-xl v-gradient-crimson px-4 py-2.5 text-xs font-bold text-white shadow-glow-crimson transition hover:brightness-105 active:scale-95"
               >
-                <span>Enquire Now</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                Enquire Now
+                <ArrowRight className="h-3.5 w-3.5" />
               </button>
             </Magnetic>
           </div>
 
-          {/* Mobile */}
-          <div className="lg:hidden flex items-center gap-2">
+          {/* Mobile actions */}
+          <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={() => onOpenEnquiry()}
-              className="sm:hidden px-3 py-1.5 rounded-lg v-gradient-crimson text-white font-bold text-xs"
+              className="rounded-lg v-gradient-crimson px-3 py-2 text-xs font-bold text-white sm:hidden"
             >
               Enquire
             </button>
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 rounded-lg transition ${
-                solid
-                  ? "text-slate-700 hover:bg-slate-100"
-                  : "text-white hover:bg-white/10"
-              }`}
-              aria-label="Toggle navigation menu"
+              onClick={() => setMenuOpen(true)}
+              className="rounded-lg p-2 text-slate-700 transition hover:bg-slate-100"
+              aria-label="Open menu"
             >
-              {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              <Menu className="h-6 w-6" />
             </button>
           </div>
         </div>
+      </header>
 
-        {/* Mobile dropdown */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3 mt-2.5 shadow-xl animate-fade-up">
-            <div className="flex flex-col space-y-1 text-sm font-semibold text-slate-800">
-              {NAV_LINKS.map(([id, label]) => (
-                <button
-                  key={id}
-                  onClick={() => scrollToSection(id)}
-                  className="text-left py-2 border-b border-slate-100 hover:text-crimson-600"
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-            <div className="pt-2 grid grid-cols-2 gap-2">
+      {/* Mobile drawer */}
+      <div
+        className={`fixed inset-0 z-50 lg:hidden ${
+          menuOpen ? "" : "pointer-events-none"
+        }`}
+        aria-hidden={!menuOpen}
+      >
+        {/* scrim */}
+        <div
+          onClick={() => setMenuOpen(false)}
+          className={`absolute inset-0 bg-ink/50 backdrop-blur-sm transition-opacity duration-300 ${
+            menuOpen ? "opacity-100" : "opacity-0"
+          }`}
+        />
+        {/* panel */}
+        <div
+          className={`absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col bg-white shadow-2xl transition-transform duration-300 ease-out ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+            <Logo className="h-9" />
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="rounded-full p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+              aria-label="Close menu"
+            >
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+
+          <nav className="flex-1 overflow-y-auto px-3 py-3">
+            {NAV_LINKS.map(([id, label]) => (
+              <button
+                key={id}
+                onClick={() => go(id)}
+                className="flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-[15px] font-semibold text-slate-700 transition hover:bg-slate-50 hover:text-crimson-600"
+              >
+                {label}
+                <ChevronRight className="h-4 w-4 text-slate-300" />
+              </button>
+            ))}
+          </nav>
+
+          <div className="space-y-2.5 border-t border-slate-100 p-4">
+            <div className="flex items-center justify-between rounded-xl bg-slate-50 px-3.5 py-2.5 text-xs">
+              <span className="text-slate-500">Booking office</span>
               <a
                 href={`tel:${BOOKING_OFFICE.phone1Raw}`}
-                className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-slate-300 font-bold text-slate-800 text-xs"
+                className="font-bold text-navy-900"
               >
-                <Phone className="w-3.5 h-3.5 text-crimson-600" />
+                {BOOKING_OFFICE.phone1}
+              </a>
+            </div>
+            <div className="grid grid-cols-2 gap-2.5">
+              <a
+                href={`tel:${BOOKING_OFFICE.phone1Raw}`}
+                className="flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 py-3 text-xs font-bold text-slate-700"
+              >
+                <Phone className="h-3.5 w-3.5 text-crimson-600" />
                 Call Office
               </a>
               <button
                 onClick={() => {
-                  setMobileMenuOpen(false);
+                  setMenuOpen(false);
                   onOpenEnquiry();
                 }}
-                className="py-2.5 rounded-xl v-gradient-crimson text-white font-bold text-xs shadow-md"
+                className="rounded-xl v-gradient-crimson py-3 text-xs font-bold text-white shadow-glow-crimson"
               >
                 Enquire Now
               </button>
             </div>
           </div>
-        )}
-      </header>
+        </div>
+      </div>
     </>
   );
 }

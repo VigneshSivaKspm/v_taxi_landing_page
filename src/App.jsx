@@ -36,7 +36,11 @@ const MARQUEE_ITEMS = [
 ];
 
 export default function App() {
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      new URLSearchParams(window.location.search).get("enquiry") === "1"
+  );
   const [modalData, setModalData] = useState(null);
 
   const handleOpenEnquiry = (data = null) => {

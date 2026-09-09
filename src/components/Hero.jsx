@@ -23,7 +23,7 @@ export default function Hero({ onOpenEnquiry }) {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-ink text-white -mt-[104px] pt-44 pb-28 lg:pt-52 lg:pb-36"
+      className="relative overflow-hidden bg-ink text-white pt-16 pb-24 sm:pt-20 lg:pt-28 lg:pb-36"
     >
       {/* Cinematic background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
