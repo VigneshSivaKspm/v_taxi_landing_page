@@ -29,6 +29,12 @@
 
   body {
     background-color: #f5f6f8;
+    overflow-x: clip;
+  }
+
+  /* Guard against stray full-bleed decorations causing horizontal scroll */
+  #root {
+    overflow-x: clip;
   }
 
   ::selection {

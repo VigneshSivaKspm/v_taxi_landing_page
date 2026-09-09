@@ -32,19 +32,18 @@ export default function TaxiServices({ onOpenEnquiry }) {
   return (
     <section
       id="services"
-      className="py-24 sm:py-32 bg-slate-50 relative border-y border-slate-200"
+      className="py-20 sm:py-28 bg-slate-50 relative border-y border-slate-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Taxi Services"
-          index="02"
-          title="Travel solutions for"
-          accent="every journey"
+          title="Travel solutions"
+          accent="for every journey"
           description="From everyday city commutes to planned spiritual yatras and intercity corporate trips, V TAXI is built around your varied travel needs."
-          className="mb-16"
+          className="mb-12"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
           {TAXI_SERVICES.map((service, i) => {
             const { Icon, color } = iconMap[service.icon];
             return (

@@ -45,12 +45,11 @@ export default function SocialConnection() {
   ];
 
   return (
-    <section className="py-24 sm:py-32 bg-slate-50 relative border-b border-slate-200">
+    <section className="py-20 sm:py-28 bg-slate-50 relative border-b border-slate-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-12">
         <SectionHeader
           eyebrow="Community Connection"
           icon={Share2}
-          index="10"
           title="Follow the"
           accent="V journey"
           description="Follow V TAXI for service updates, new destinations, travel ideas, launch offers and official announcements."

@@ -9,17 +9,16 @@ export default function WhyChoose() {
   return (
     <section
       id="why-v-taxi"
-      className="py-24 sm:py-32 bg-slate-50 relative border-b border-slate-200"
+      className="py-20 sm:py-28 bg-slate-50 relative border-b border-slate-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Our Commitment"
           icon={ShieldCheck}
-          index="06"
           title="Why travel with"
           accent="V TAXI?"
           description="We focus on operational consistency, comfortable vehicles and clear communication for a superior journey experience."
-          className="mb-16"
+          className="mb-12"
         />
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">

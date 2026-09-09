@@ -10,19 +10,18 @@ export default function PreLaunchOffer({ onOpenEnquiry }) {
   return (
     <section
       id="launch-offers"
-      className="py-24 sm:py-32 bg-white relative overflow-hidden"
+      className="py-20 sm:py-28 bg-white relative overflow-hidden"
     >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[320px] bg-radial-fade pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <SectionHeader
           eyebrow="Pre-Launch Benefits"
           icon={Tag}
-          index="07"
           tone="amber"
-          title="Be among the first to"
-          accent="ride with V TAXI"
+          title="Be among the first"
+          accent="to ride with V TAXI"
           description="Register during our pre-launch period for priority updates, launch announcements and access to introductory offers."
-          className="mb-16"
+          className="mb-12"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">

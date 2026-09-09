@@ -6,17 +6,16 @@ import Reveal from "./Reveal";
 
 export default function LocationMap() {
   return (
-    <section className="py-24 sm:py-32 bg-white relative border-b border-slate-200">
+    <section className="py-20 sm:py-28 bg-white relative border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Office & Location"
           icon={MapPin}
-          index="11"
           tone="slate"
-          title="Booking office &"
-          accent="operations"
+          title="Booking office"
+          accent="& operations"
           description="Reach out to our booking team or visit our central coordination office in Tamil Nadu."
-          className="mb-14"
+          className="mb-12"
         />
 
         {/* 2-Column Location & Map Card */}

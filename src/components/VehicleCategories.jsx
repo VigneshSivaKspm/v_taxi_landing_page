@@ -9,7 +9,7 @@ export default function VehicleCategories({ onOpenEnquiry }) {
   return (
     <section
       id="vehicles"
-      className="py-24 sm:py-32 bg-ink text-white relative overflow-hidden"
+      className="py-20 sm:py-28 bg-ink text-white relative overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-grid-dark opacity-50 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_30%,#000,transparent)]" />
@@ -24,12 +24,11 @@ export default function VehicleCategories({ onOpenEnquiry }) {
         <SectionHeader
           eyebrow="Vehicle Categories"
           icon={Car}
-          index="03"
           theme="dark"
-          title="Choose the"
-          accent="right V ride"
+          title="Choose the right"
+          accent="V ride"
           description="Vehicle choices configured for your passenger count, luggage and journey type. Submit your details for an itemized quotation."
-          className="mb-16"
+          className="mb-12"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">

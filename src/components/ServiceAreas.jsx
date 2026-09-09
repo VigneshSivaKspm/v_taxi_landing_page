@@ -9,18 +9,17 @@ export default function ServiceAreas({ onOpenEnquiry }) {
   return (
     <section
       id="service-areas"
-      className="py-24 sm:py-32 bg-white relative overflow-hidden"
+      className="py-20 sm:py-28 bg-white relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-dots opacity-40 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <SectionHeader
           eyebrow="Service Areas"
           icon={MapPin}
-          index="05"
           title="Growing across"
           accent="Tamil Nadu"
           description="Focusing on Tamil Nadu’s key residential, industrial, cultural and spiritual centers."
-          className="mb-16"
+          className="mb-12"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">

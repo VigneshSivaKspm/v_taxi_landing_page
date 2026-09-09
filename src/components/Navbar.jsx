@@ -98,7 +98,7 @@ export default function Navbar({ onOpenEnquiry }) {
             className="group shrink-0"
             aria-label="V TAXI — The People's Choice"
           >
-            <Logo className="h-9 transition-transform group-hover:scale-[1.03] sm:h-10" />
+            <Logo className="h-10 transition-transform group-hover:scale-[1.03] sm:h-11" />
           </a>
 
           <nav className="hidden items-center gap-7 text-sm font-semibold text-slate-600 lg:flex">
@@ -153,7 +153,7 @@ export default function Navbar({ onOpenEnquiry }) {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 z-50 lg:hidden ${
+        className={`fixed inset-0 z-50 overflow-hidden lg:hidden ${
           menuOpen ? "" : "pointer-events-none"
         }`}
         aria-hidden={!menuOpen}

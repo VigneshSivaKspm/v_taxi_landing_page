@@ -42,16 +42,15 @@ export default function LocalOutstation({ onOpenEnquiry }) {
   ];
 
   return (
-    <section className="py-24 sm:py-32 bg-slate-50 relative border-b border-slate-200">
+    <section className="py-20 sm:py-28 bg-slate-50 relative border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="Comprehensive Connectivity"
-          index="04"
           tone="slate"
-          title="From local streets to"
-          accent="long-distance destinations"
+          title="From local streets"
+          accent="to long-distance travel"
           description="One provider for your daily city transit and your cross-district travels across Tamil Nadu."
-          className="mb-16"
+          className="mb-12"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">

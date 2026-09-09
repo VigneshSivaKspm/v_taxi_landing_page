@@ -27,16 +27,15 @@ const VALUES = [
 
 export default function BrandIntro() {
   return (
-    <section className="py-24 sm:py-32 bg-white relative overflow-hidden">
+    <section className="py-20 sm:py-28 bg-white relative overflow-hidden">
       <div className="absolute inset-0 bg-dots opacity-40 pointer-events-none" />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <SectionHeader
           eyebrow="Brand Introduction"
-          index="01"
           tone="slate"
-          title="Meet V TAXI,"
-          accent="the people’s choice"
-          className="mb-14"
+          title="Meet V TAXI"
+          accent="The people’s choice"
+          className="mb-12"
         />
 
         <Reveal variant="up" y={32}>

@@ -19,7 +19,7 @@ export default function ComingSoonApp({ onOpenEnquiry }) {
   return (
     <section
       id="coming-soon"
-      className="py-24 sm:py-32 bg-ink text-white relative overflow-hidden"
+      className="py-20 sm:py-28 bg-ink text-white relative overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-grid-dark opacity-50 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000,transparent)]" />

@@ -12,7 +12,7 @@ export default function ContactQuickActions({ onOpenEnquiry }) {
   return (
     <section
       id="contact"
-      className="py-24 sm:py-32 bg-slate-50 relative border-b border-slate-200 overflow-hidden"
+      className="py-20 sm:py-28 bg-slate-50 relative border-b border-slate-200 overflow-hidden"
     >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[320px] bg-radial-fade pointer-events-none" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative flex flex-col items-center gap-16">
@@ -21,7 +21,6 @@ export default function ContactQuickActions({ onOpenEnquiry }) {
           <SectionHeader
             eyebrow="Contact & Quick Actions"
             icon={Phone}
-            index="12"
             title="Ready to start"
             accent="your journey?"
             description="Reach our booking office directly, or submit your travel details for a quotation and launch privileges."
