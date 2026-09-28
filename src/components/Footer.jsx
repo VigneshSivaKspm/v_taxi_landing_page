@@ -20,19 +20,30 @@ export default function Footer({ onOpenEnquiry }) {
 
   return (
     <footer className="bg-navy-950 text-slate-400 text-xs pt-16 pb-24 lg:pb-12 border-t border-slate-800 relative overflow-hidden">
+      <img
+        src="/images/backgrounds/vehicle-section-dark.webp"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover object-bottom opacity-15 mix-blend-luminosity pointer-events-none"
+        loading="lazy"
+        decoding="async"
+      />
       <div className="absolute inset-0 bg-grid-dark opacity-50 pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative">
         {/* Main Grid */}
-        <Reveal as="div" y={22} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
+        <Reveal
+          as="div"
+          y={22}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8"
+        >
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-4">
-            <span className="block h-12 aspect-[43/20] overflow-hidden rounded-lg bg-white shadow-sm">
+            <div className="inline-flex items-center h-16 sm:h-20 bg-white/95 px-4 py-2 rounded-2xl shadow-md border border-white/20">
               <img
-                src="/logo.png"
+                src="/images/brand/v-taxi-logo-clean-transparent.png"
                 alt="V TAXI — The People's Choice"
-                className="w-full h-full object-cover object-center"
+                className="h-full w-auto object-contain object-left"
               />
-            </span>
+            </div>
 
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
               {BOOKING_OFFICE.brandMessage}

@@ -19,9 +19,17 @@ export default function ComingSoonApp({ onOpenEnquiry }) {
   return (
     <section
       id="coming-soon"
-      className="py-20 sm:py-28 bg-ink text-white relative overflow-hidden"
+      className="py-20 sm:py-28 bg-gradient-to-b from-[#140303] via-[#1d0606] to-[#100202] text-white relative overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
+        <img
+          src="/images/backgrounds/vehicle-section-dark.webp"
+          alt=""
+          className="w-full h-full object-cover object-center opacity-20 mix-blend-luminosity"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#140303]/90 via-[#1d0606]/85 to-[#100202]" />
         <div className="absolute inset-0 bg-grid-dark opacity-50 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000,transparent)]" />
         <div className="aurora bg-crimson-600/25 w-[480px] h-[400px] top-0 left-[-120px]" />
         <div
@@ -48,11 +56,17 @@ export default function ComingSoonApp({ onOpenEnquiry }) {
                     </div>
 
                     <div className="flex items-center justify-between pb-3 border-b border-white/10">
-                      <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-lg v-gradient-crimson flex items-center justify-center font-bold text-xs">
-                          V
-                        </div>
-                        <span className="font-bold text-xs tracking-tight">
+                      <div className="flex items-center gap-2.5">
+                        <img
+                          src="/images/brand/v-taxi-app-icon-master.png"
+                          alt="V TAXI App Icon"
+                          className="w-8 h-8 rounded-xl object-contain shadow-sm border border-white/20"
+                          loading="lazy"
+                          decoding="async"
+                          width="32"
+                          height="32"
+                        />
+                        <span className="font-bold text-xs tracking-tight text-white">
                           V TAXI App
                         </span>
                       </div>

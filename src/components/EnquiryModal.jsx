@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { X, Send, CheckCircle2, Phone, MessageSquare, ShieldCheck } from "lucide-react";
+import {
+  X,
+  Send,
+  CheckCircle2,
+  Phone,
+  MessageSquare,
+  ShieldCheck,
+} from "lucide-react";
 import confetti from "canvas-confetti";
 import { BOOKING_OFFICE, PRIMARY_SERVICE_AREAS } from "../data/landingData";
 import { inputBase, Label, GroupTitle, SelectField } from "./formUI";
@@ -25,7 +32,8 @@ export default function EnquiryModal({ isOpen, onClose, initialData = null }) {
     if (initialData.destination) setDestination(initialData.destination);
     if (initialData.tripType) setTripType(initialData.tripType);
     if (initialData.vehicle) setPreferredVehicle(initialData.vehicle);
-    if (initialData.service) setMessage(`Service enquiry: ${initialData.service}`);
+    if (initialData.service)
+      setMessage(`Service enquiry: ${initialData.service}`);
     if (initialData.specialOffer)
       setMessage(`Offer interest: ${initialData.specialOffer}`);
   }, [initialData]);
@@ -63,7 +71,7 @@ export default function EnquiryModal({ isOpen, onClose, initialData = null }) {
   };
 
   const waHref = `https://wa.me/${BOOKING_OFFICE.whatsapp}?text=${encodeURIComponent(
-    `Hi V TAXI, I just registered an enquiry. Name: ${name || "-"}, Route: ${pickupCity} to ${destination}`
+    `Hi V TAXI, I just registered an enquiry. Name: ${name || "-"}, Route: ${pickupCity} to ${destination}`,
   )}`;
 
   return (
@@ -85,11 +93,11 @@ export default function EnquiryModal({ isOpen, onClose, initialData = null }) {
         {/* Header */}
         <div className="flex shrink-0 items-start justify-between gap-3 px-5 pt-4 pb-4 sm:px-7 sm:pt-6">
           <div className="min-w-0">
-            <span className="block h-9 aspect-[43/20] overflow-hidden rounded-md">
+            <span className="inline-flex items-center h-12 overflow-hidden">
               <img
-                src="/logo.png"
+                src="/images/brand/v-taxi-logo-clean-transparent.png"
                 alt="V TAXI — The People's Choice"
-                className="h-full w-full object-cover object-center"
+                className="h-full w-auto object-contain object-left"
               />
             </span>
             <h3 className="mt-2.5 font-display text-lg leading-tight text-navy-900">
@@ -191,7 +199,9 @@ export default function EnquiryModal({ isOpen, onClose, initialData = null }) {
                       ))}
                       <option value="Kumbakonam">Kumbakonam</option>
                       <option value="Tirunelveli">Tirunelveli</option>
-                      <option value="Other Destination">Other Destination</option>
+                      <option value="Other Destination">
+                        Other Destination
+                      </option>
                     </SelectField>
                   </div>
 
@@ -287,8 +297,16 @@ export default function EnquiryModal({ isOpen, onClose, initialData = null }) {
           </>
         ) : (
           <div className="flex-1 overflow-y-auto border-t border-slate-100 px-6 py-10 text-center">
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 ring-8 ring-emerald-50/60">
-              <CheckCircle2 className="h-9 w-9" />
+            <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-emerald-50/80 p-2 shadow-sm border border-emerald-100 ring-8 ring-emerald-50/60">
+              <img
+                src="/images/icons/enquiry-success.png"
+                alt="Enquiry Success"
+                className="h-14 w-14 object-contain"
+                loading="lazy"
+                decoding="async"
+                width="56"
+                height="56"
+              />
             </div>
             <h4 className="mt-5 font-display text-xl text-navy-900">
               Enquiry received

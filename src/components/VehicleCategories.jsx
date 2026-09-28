@@ -1,18 +1,40 @@
 import React from "react";
-import { Users, Briefcase, Check, Car, Sparkles, ArrowRight } from "lucide-react";
+import {
+  Users,
+  Briefcase,
+  Check,
+  Car,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
 import { VEHICLE_CATEGORIES } from "../data/landingData";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import Spotlight from "./Spotlight";
 
+const VEHICLE_IMAGES = {
+  sedan: "/images/vehicles/vtaxi_5_seater_sedan.png",
+  suv: "/images/vehicles/vtaxi_7_seater_suv.png",
+  "premium-suv": "/images/vehicles/vtaxi_premium_suv.png",
+  "tempo-traveller": "/images/vehicles/vtaxi_tempo_traveller.png",
+};
+
 export default function VehicleCategories({ onOpenEnquiry }) {
   return (
     <section
       id="vehicles"
-      className="py-20 sm:py-28 bg-ink text-white relative overflow-hidden"
+      className="py-20 sm:py-28 bg-gradient-to-b from-[#180404] via-[#1f0606] to-[#120303] text-white relative overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-grid-dark opacity-50 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_30%,#000,transparent)]" />
+        <img
+          src="/images/backgrounds/vehicle-section-dark.webp"
+          alt=""
+          className="w-full h-full object-cover object-center opacity-25 mix-blend-luminosity"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#180404]/90 via-[#1f0606]/85 to-[#120303]" />
+        <div className="absolute inset-0 bg-grid-dark opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_30%,#000,transparent)]" />
         <div className="aurora bg-crimson-600/25 w-[520px] h-[420px] -top-24 right-[-120px]" />
         <div
           className="aurora bg-amber-500/15 w-[440px] h-[360px] bottom-[-140px] left-[-100px]"
@@ -35,11 +57,18 @@ export default function VehicleCategories({ onOpenEnquiry }) {
           {VEHICLE_CATEGORIES.map((vehicle, i) => {
             const isPopular = vehicle.isPopular;
             const isComingSoon = vehicle.isComingSoon;
+            const vehicleImg = VEHICLE_IMAGES[vehicle.id];
 
             return (
-              <Reveal key={vehicle.id} delay={i * 80} variant="up" y={28} className="h-full">
+              <Reveal
+                key={vehicle.id}
+                delay={i * 80}
+                variant="up"
+                y={28}
+                className="h-full"
+              >
                 <Spotlight
-                  className={`on-dark lift h-full rounded-[26px] p-6 flex flex-col justify-between relative border ${
+                  className={`on-dark lift group h-full rounded-[26px] p-6 flex flex-col justify-between relative border ${
                     isPopular
                       ? "ring-gradient bg-white/[0.07] border-transparent shadow-glow-crimson"
                       : isComingSoon
@@ -48,13 +77,13 @@ export default function VehicleCategories({ onOpenEnquiry }) {
                   }`}
                 >
                   {isPopular && (
-                    <span className="absolute -top-3 left-6 text-[10px] font-extrabold tracking-widest uppercase px-3 py-1 rounded-full v-gradient-crimson text-white shadow-glow-crimson">
+                    <span className="absolute -top-3 left-6 text-[10px] font-extrabold tracking-widest uppercase px-3 py-1 rounded-full v-gradient-crimson text-white shadow-glow-crimson z-10">
                       Most Booked
                     </span>
                   )}
 
                   <div>
-                    <div className="flex items-center justify-between gap-2 mb-4">
+                    <div className="flex items-center justify-between gap-2 mb-3">
                       <span
                         className={`text-[10px] font-extrabold tracking-widest uppercase px-2.5 py-1 rounded-md ${
                           isPopular
@@ -66,6 +95,22 @@ export default function VehicleCategories({ onOpenEnquiry }) {
                       >
                         {vehicle.badge}
                       </span>
+                    </div>
+
+                    {/* Cutout Vehicle Render */}
+                    <div className="relative h-32 sm:h-36 w-full flex items-center justify-center my-2 group-hover:scale-105 transition-transform duration-500 ease-out">
+                      <div className="absolute inset-0 bg-radial from-crimson-500/20 via-transparent to-transparent blur-xl" />
+                      {vehicleImg && (
+                        <img
+                          src={vehicleImg}
+                          alt={vehicle.title}
+                          className="h-full w-auto max-w-full object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.65)]"
+                          loading="lazy"
+                          decoding="async"
+                          width="300"
+                          height="160"
+                        />
+                      )}
                     </div>
 
                     <h3 className="text-xl font-display text-white">
@@ -81,7 +126,9 @@ export default function VehicleCategories({ onOpenEnquiry }) {
                     <div className="p-3 bg-white/5 rounded-2xl border border-white/10 text-xs space-y-2 mb-5">
                       <div className="flex items-center gap-2 text-slate-200">
                         <Users className="w-4 h-4 text-crimson-400 flex-shrink-0" />
-                        <span className="font-semibold">{vehicle.capacity}</span>
+                        <span className="font-semibold">
+                          {vehicle.capacity}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-200">
                         <Briefcase className="w-4 h-4 text-amber-400 flex-shrink-0" />
@@ -110,7 +157,9 @@ export default function VehicleCategories({ onOpenEnquiry }) {
                     }`}
                   >
                     <span>
-                      {isComingSoon ? "Pre-Register Group" : "Request Fare Quote"}
+                      {isComingSoon
+                        ? "Pre-Register Group"
+                        : "Request Fare Quote"}
                     </span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
@@ -125,9 +174,9 @@ export default function VehicleCategories({ onOpenEnquiry }) {
             <div className="flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-amber-400 flex-shrink-0" />
               <span>
-                <strong className="text-white">Fare transparency:</strong> custom
-                quotations based on your pickup, destination and vehicle class —
-                zero hidden drop-off charges.
+                <strong className="text-white">Fare transparency:</strong>{" "}
+                custom quotations based on your pickup, destination and vehicle
+                class — zero hidden drop-off charges.
               </span>
             </div>
             <button

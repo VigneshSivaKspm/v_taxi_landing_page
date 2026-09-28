@@ -14,12 +14,12 @@ const NAV_LINKS = [
   ["contact", "Contact"],
 ];
 
-const Logo = ({ className = "h-10" }) => (
-  <span className={`block aspect-[43/20] overflow-hidden rounded-md ${className}`}>
+const Logo = ({ className = "h-12 sm:h-14" }) => (
+  <span className={`inline-flex items-center overflow-hidden ${className}`}>
     <img
-      src="/logo.png"
+      src="/images/brand/v-taxi-logo-clean-transparent.png"
       alt="V TAXI — The People's Choice"
-      className="h-full w-full object-cover object-center"
+      className="h-full w-auto object-contain object-left"
     />
   </span>
 );
@@ -95,10 +95,10 @@ export default function Navbar({ onOpenEnquiry }) {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
           <a
             href="#home"
-            className="group shrink-0"
+            className="group shrink-0 flex items-center py-1"
             aria-label="V TAXI — The People's Choice"
           >
-            <Logo className="h-10 transition-transform group-hover:scale-[1.03] sm:h-11" />
+            <Logo className="h-12 sm:h-14 md:h-16 transition-transform group-hover:scale-[1.03]" />
           </a>
 
           <nav className="hidden items-center gap-7 text-sm font-semibold text-slate-600 lg:flex">
@@ -172,7 +172,7 @@ export default function Navbar({ onOpenEnquiry }) {
           }`}
         >
           <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
-            <Logo className="h-9" />
+            <Logo className="h-11 sm:h-12" />
             <button
               onClick={() => setMenuOpen(false)}
               className="rounded-full p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"

@@ -1,31 +1,52 @@
 import React from "react";
-import {
-  Navigation,
-  Compass,
-  Plane,
-  Train,
-  Users,
-  Briefcase,
-  Heart,
-  Map,
-  ArrowRight,
-  ArrowUpRight,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { TAXI_SERVICES } from "../data/landingData";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import Spotlight from "./Spotlight";
 import Magnetic from "./Magnetic";
 
-const iconMap = {
-  Navigation: { Icon: Navigation, color: "text-crimson-600 bg-crimson-50" },
-  Compass: { Icon: Compass, color: "text-crimson-600 bg-crimson-50" },
-  Plane: { Icon: Plane, color: "text-blue-600 bg-blue-50" },
-  Train: { Icon: Train, color: "text-emerald-600 bg-emerald-50" },
-  Users: { Icon: Users, color: "text-amber-600 bg-amber-50" },
-  Briefcase: { Icon: Briefcase, color: "text-indigo-600 bg-indigo-50" },
-  Heart: { Icon: Heart, color: "text-rose-600 bg-rose-50" },
-  Map: { Icon: Map, color: "text-teal-600 bg-teal-50" },
+const SERVICE_ASSETS = {
+  local: {
+    image: "/images/services/local-taxi.webp",
+    icon: "/images/icons/service-local.png",
+    alt: "V TAXI local city taxi service in Tamil Nadu",
+  },
+  outstation: {
+    image: "/images/services/outstation-taxi.webp",
+    icon: "/images/icons/service-outstation.png",
+    alt: "V TAXI outstation highway taxi intercity travel",
+  },
+  airport: {
+    image: "/images/services/airport-transfer.webp",
+    icon: "/images/icons/service-airport.png",
+    alt: "V TAXI airport transfer pickup and drop",
+  },
+  railway: {
+    image: "/images/services/railway-transfer.webp",
+    icon: "/images/icons/service-railway.png",
+    alt: "V TAXI railway station pickup and drop",
+  },
+  family: {
+    image: "/images/brand/v-taxi-family-journey.webp",
+    icon: "/images/icons/service-family.png",
+    alt: "V TAXI spacious family travel vehicle",
+  },
+  business: {
+    image: "/images/services/business-travel.webp",
+    icon: "/images/icons/service-business.png",
+    alt: "V TAXI executive corporate business travel",
+  },
+  pilgrimage: {
+    image: "/images/services/pilgrimage-travel.webp",
+    icon: "/images/icons/service-pilgrimage.png",
+    alt: "V TAXI pilgrimage and temple travel across Tamil Nadu",
+  },
+  tours: {
+    image: "/images/services/tour-packages.webp",
+    icon: "/images/icons/service-tour.png",
+    alt: "V TAXI customized holiday and weekend tour packages",
+  },
 };
 
 export default function TaxiServices({ onOpenEnquiry }) {
@@ -45,34 +66,73 @@ export default function TaxiServices({ onOpenEnquiry }) {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
           {TAXI_SERVICES.map((service, i) => {
-            const { Icon, color } = iconMap[service.icon];
+            const assets = SERVICE_ASSETS[service.id] || {
+              image: "/images/services/local-taxi.webp",
+              icon: "/images/icons/service-local.png",
+              alt: service.title,
+            };
+
             return (
-              <Reveal key={service.id} delay={(i % 4) * 70} variant="up" y={24} className="h-full">
+              <Reveal
+                key={service.id}
+                delay={(i % 4) * 70}
+                variant="up"
+                y={24}
+                className="h-full"
+              >
                 <Spotlight
                   as="button"
                   onClick={() => onOpenEnquiry({ service: service.title })}
-                  className="lift group h-full w-full text-left bg-white rounded-2xl p-6 border border-slate-200 shadow-card-soft hover:shadow-card-hover hover:border-crimson-300 flex flex-col justify-between gap-5"
+                  className="lift group h-full w-full text-left bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-card-soft hover:shadow-card-hover hover:border-crimson-400 flex flex-col justify-between transition-all"
                 >
-                  <div className="space-y-3.5">
-                    <div className="flex items-start justify-between">
-                      <div
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center ${color} group-hover:scale-110 transition-transform`}
-                      >
-                        <Icon className="w-5 h-5" />
+                  <div>
+                    {/* 4:3 Photographic Card Header */}
+                    <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100">
+                      <img
+                        src={assets.image}
+                        alt={assets.alt}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                        loading="lazy"
+                        decoding="async"
+                        width="400"
+                        height="300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
+                      {/* Illustrated Custom Service Icon Badge */}
+                      <div className="absolute bottom-3 left-3 w-11 h-11 rounded-xl bg-white/95 backdrop-blur-md p-1.5 shadow-md flex items-center justify-center border border-white/60 group-hover:scale-110 transition-transform">
+                        <img
+                          src={assets.icon}
+                          alt=""
+                          className="w-8 h-8 object-contain"
+                          loading="lazy"
+                          decoding="async"
+                          width="32"
+                          height="32"
+                        />
                       </div>
-                      <ArrowUpRight className="w-4 h-4 text-slate-300 group-hover:text-crimson-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
+
+                      <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-sm text-slate-400 group-hover:text-crimson-600 group-hover:bg-white transition-colors">
+                        <ArrowUpRight className="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+                      </div>
                     </div>
-                    <h3 className="text-[15px] font-bold text-navy-900">
-                      {service.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
-                      {service.description}
-                    </p>
+
+                    <div className="p-5 space-y-2.5">
+                      <h3 className="text-[16px] font-bold text-navy-900 group-hover:text-crimson-600 transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
-                  <span className="text-xs font-bold text-crimson-600 flex items-center gap-1 pt-3 border-t border-slate-100">
-                    Enquire Service
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </span>
+
+                  <div className="px-5 pb-5 pt-2">
+                    <span className="text-xs font-bold text-crimson-600 flex items-center gap-1 pt-3 border-t border-slate-100">
+                      Enquire Service
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </div>
                 </Spotlight>
               </Reveal>
             );

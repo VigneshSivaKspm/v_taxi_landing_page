@@ -5,6 +5,19 @@ import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import Spotlight from "./Spotlight";
 
+const WHY_ICONS = [
+  "/images/icons/why-comfort.png",
+  "/images/icons/why-capacity.png",
+  "/images/icons/why-local-outstation.png",
+  "/images/icons/why-phone.png",
+  "/images/icons/why-family.png",
+  "/images/icons/why-assistance.png",
+  "/images/icons/why-transparent.png",
+  "/images/icons/why-tamil-nadu.png",
+  "/images/icons/why-premium.png",
+  "/images/icons/why-digital.png",
+];
+
 export default function WhyChoose() {
   return (
     <section
@@ -23,7 +36,10 @@ export default function WhyChoose() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {/* Feature tile */}
-          <Reveal variant="up" className="col-span-2 sm:col-span-3 lg:col-span-1 lg:row-span-2 h-full">
+          <Reveal
+            variant="up"
+            className="col-span-2 sm:col-span-3 lg:col-span-1 lg:row-span-2 h-full"
+          >
             <div className="ring-gradient h-full rounded-[26px] bg-ink text-white p-7 flex flex-col justify-between relative overflow-hidden">
               <div className="absolute -bottom-16 -right-12 w-48 h-48 rounded-full bg-crimson-600/30 blur-3xl" />
               <Sparkles className="w-6 h-6 text-amber-400 relative" />
@@ -41,17 +57,36 @@ export default function WhyChoose() {
           </Reveal>
 
           {WHY_CHOOSE_POINTS.map((pt, idx) => (
-            <Reveal key={pt.title} delay={(idx % 4) * 55} variant="up" y={20} className="h-full">
-              <Spotlight className="lift group h-full bg-white p-5 rounded-2xl border border-slate-200 shadow-card-soft hover:shadow-card-hover hover:border-crimson-300 flex flex-col justify-between gap-2">
-                <div className="space-y-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-crimson-50 text-crimson-700 flex items-center justify-center font-mono font-bold text-xs group-hover:v-gradient-crimson group-hover:text-white transition-colors">
-                    {idx < 9 ? `0${idx + 1}` : idx + 1}
+            <Reveal
+              key={pt.title}
+              delay={(idx % 4) * 55}
+              variant="up"
+              y={20}
+              className="h-full"
+            >
+              <Spotlight className="lift group h-full bg-white p-5 rounded-2xl border border-slate-200 shadow-card-soft hover:shadow-card-hover hover:border-crimson-300 flex flex-col justify-between gap-3">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <div className="w-10 h-10 rounded-xl bg-crimson-50 border border-crimson-100 flex items-center justify-center p-1.5 group-hover:scale-110 group-hover:border-crimson-300 transition-all">
+                      <img
+                        src={WHY_ICONS[idx]}
+                        alt=""
+                        className="w-7 h-7 object-contain"
+                        loading="lazy"
+                        decoding="async"
+                        width="28"
+                        height="28"
+                      />
+                    </div>
+                    <span className="text-xs font-mono font-bold text-slate-400">
+                      {idx < 9 ? `0${idx + 1}` : idx + 1}
+                    </span>
                   </div>
-                  <h3 className="text-xs sm:text-sm font-bold text-navy-900 leading-snug">
+                  <h3 className="text-xs sm:text-sm font-bold text-navy-900 leading-snug group-hover:text-crimson-600 transition-colors">
                     {pt.title}
                   </h3>
                 </div>
-                <p className="text-[11px] text-slate-500 leading-relaxed pt-1">
+                <p className="text-[11px] text-slate-500 leading-relaxed">
                   {pt.desc}
                 </p>
               </Spotlight>

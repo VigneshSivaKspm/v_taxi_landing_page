@@ -5,6 +5,14 @@ import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import Spotlight from "./Spotlight";
 
+const DESTINATION_IMAGES = {
+  Chennai: "/images/destinations/chennai.webp",
+  Trichy: "/images/destinations/trichy.webp",
+  Thanjavur: "/images/services/pilgrimage-travel.webp",
+  Madurai: "/images/services/tour-packages.webp",
+  Rameswaram: "/images/journeys/outstation-highway.webp",
+};
+
 export default function ServiceAreas({ onOpenEnquiry }) {
   return (
     <section
@@ -27,7 +35,16 @@ export default function ServiceAreas({ onOpenEnquiry }) {
           <div className="lg:col-span-5 lg:sticky lg:top-28">
             <Reveal variant="left">
               <div className="bg-ink text-white rounded-[28px] p-6 sm:p-8 relative shadow-2xl overflow-hidden ring-gradient">
+                <img
+                  src="/images/backgrounds/vehicle-section-dark.webp"
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover object-center opacity-20 mix-blend-luminosity"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-ink/90 via-[#1f0606]/80 to-ink" />
                 <div className="absolute inset-0 bg-grid-dark opacity-60" />
+
                 <div className="relative">
                   <div className="flex items-center justify-between pb-4 border-b border-white/10">
                     <span className="text-[11px] font-mono font-bold tracking-widest text-amber-400 uppercase">
@@ -84,38 +101,61 @@ export default function ServiceAreas({ onOpenEnquiry }) {
 
           {/* Detail cards */}
           <div className="lg:col-span-7 space-y-4">
-            {PRIMARY_SERVICE_AREAS.map((area, idx) => (
-              <Reveal key={area.name} delay={idx * 70} variant="right">
-                <Spotlight className="lift bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-crimson-300 hover:shadow-card-soft flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono font-bold text-crimson-600 bg-crimson-50 px-2 py-0.5 rounded">
+            {PRIMARY_SERVICE_AREAS.map((area, idx) => {
+              const photo =
+                DESTINATION_IMAGES[area.name] ||
+                "/images/destinations/chennai.webp";
+              return (
+                <Reveal key={area.name} delay={idx * 70} variant="right">
+                  <Spotlight className="lift group bg-slate-50 hover:bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 hover:border-crimson-300 hover:shadow-card-soft flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all">
+                    {/* Destination Thumbnail */}
+                    <div className="w-full sm:w-28 sm:h-24 h-36 rounded-xl overflow-hidden flex-shrink-0 relative bg-slate-200">
+                      <img
+                        src={photo}
+                        alt={`${area.name} destination view`}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                        decoding="async"
+                        width="160"
+                        height="120"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
+                      <span className="sm:hidden absolute top-2 left-2 text-[10px] font-mono font-bold text-white bg-crimson-600/90 px-2 py-0.5 rounded">
                         ZONE 0{idx + 1}
                       </span>
-                      <h3 className="text-lg font-display text-navy-900">
-                        {area.name}{" "}
-                        <span className="text-slate-500 font-normal text-sm font-sans">
-                          ({area.tamil})
-                        </span>
-                      </h3>
                     </div>
-                    <p className="text-[11px] font-bold uppercase tracking-wide text-slate-400">
-                      {area.role}
-                    </p>
-                    <p className="text-xs text-slate-600 leading-relaxed max-w-xl">
-                      {area.description}
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => onOpenEnquiry({ pickupCity: area.name })}
-                    className="flex-shrink-0 px-4 py-2 rounded-xl bg-white hover:bg-crimson-600 hover:text-white border border-slate-300 hover:border-crimson-600 text-slate-800 font-bold text-xs transition flex items-center justify-center gap-1 group"
-                  >
-                    <span>Enquire {area.name}</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </Spotlight>
-              </Reveal>
-            ))}
+
+                    <div className="space-y-1.5 flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span className="hidden sm:inline-block text-xs font-mono font-bold text-crimson-600 bg-crimson-50 px-2 py-0.5 rounded border border-crimson-100">
+                          ZONE 0{idx + 1}
+                        </span>
+                        <h3 className="text-lg font-display text-navy-900 group-hover:text-crimson-600 transition-colors">
+                          {area.name}{" "}
+                          <span className="text-slate-500 font-normal text-sm font-sans">
+                            ({area.tamil})
+                          </span>
+                        </h3>
+                      </div>
+                      <p className="text-[11px] font-bold uppercase tracking-wide text-slate-400">
+                        {area.role}
+                      </p>
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        {area.description}
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => onOpenEnquiry({ pickupCity: area.name })}
+                      className="flex-shrink-0 w-full sm:w-auto px-4 py-2 rounded-xl bg-white hover:bg-crimson-600 hover:text-white border border-slate-300 hover:border-crimson-600 text-slate-800 font-bold text-xs transition flex items-center justify-center gap-1 group shadow-sm"
+                    >
+                      <span>Enquire {area.name}</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </Spotlight>
+                </Reveal>
+              );
+            })}
 
             <p className="text-xs text-slate-500 pt-1">
               Planning travel to another destination in Tamil Nadu? We also

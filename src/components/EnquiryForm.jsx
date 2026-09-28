@@ -26,7 +26,8 @@ export default function EnquiryForm({ initialData = null }) {
     if (initialData.destination) setDestination(initialData.destination);
     if (initialData.tripType) setTripType(initialData.tripType);
     if (initialData.vehicle) setPreferredVehicle(initialData.vehicle);
-    if (initialData.service) setMessage(`Enquiring about: ${initialData.service}`);
+    if (initialData.service)
+      setMessage(`Enquiring about: ${initialData.service}`);
     if (initialData.specialOffer)
       setMessage(`Interested in offer: ${initialData.specialOffer}`);
   }, [initialData]);
@@ -44,7 +45,7 @@ export default function EnquiryForm({ initialData = null }) {
   };
 
   const waHref = `https://wa.me/${BOOKING_OFFICE.whatsapp}?text=${encodeURIComponent(
-    `Hi V TAXI, I just registered on your website. Name: ${name || "-"}, Route: ${pickupCity} to ${destination}`
+    `Hi V TAXI, I just registered on your website. Name: ${name || "-"}, Route: ${pickupCity} to ${destination}`,
   )}`;
 
   return (
@@ -133,7 +134,9 @@ export default function EnquiryForm({ initialData = null }) {
                       <option value="Kumbakonam">Kumbakonam</option>
                       <option value="Tirunelveli">Tirunelveli</option>
                       <option value="Dindigul">Dindigul</option>
-                      <option value="Other Destination">Other Destination</option>
+                      <option value="Other Destination">
+                        Other Destination
+                      </option>
                     </SelectField>
                   </div>
 
@@ -222,15 +225,24 @@ export default function EnquiryForm({ initialData = null }) {
             </form>
           ) : (
             <div className="px-6 py-12 text-center sm:px-10">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 ring-8 ring-emerald-50/60">
-                <CheckCircle2 className="h-9 w-9" />
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-emerald-50/80 p-2 shadow-sm border border-emerald-100 ring-8 ring-emerald-50/60">
+                <img
+                  src="/images/icons/enquiry-success.png"
+                  alt="Enquiry Success"
+                  className="h-14 w-14 object-contain"
+                  loading="lazy"
+                  decoding="async"
+                  width="56"
+                  height="56"
+                />
               </div>
               <h3 className="mt-5 font-display text-2xl text-navy-900">
                 Enquiry received
               </h3>
               <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-slate-600">
-                Thank you for choosing V TAXI. Our booking office will review your
-                route ({pickupCity} → {destination}) and contact you shortly.
+                Thank you for choosing V TAXI. Our booking office will review
+                your route ({pickupCity} → {destination}) and contact you
+                shortly.
               </p>
 
               <div className="mx-auto mt-7 flex max-w-sm flex-col gap-2.5 sm:flex-row">

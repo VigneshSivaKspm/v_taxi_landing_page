@@ -1,0 +1,872 @@
+V TAXI — COMPLETE WEBSITE IMAGE PROMPT LIBRARY
+================================================
+
+Prepared after auditing the full React landing page, including the hero, statistics, brand introduction, eight service cards, four vehicle cards, local/outstation cards, five service-area cards, ten Why V TAXI cards, four launch-offer cards, app preview, enquiry forms, social cards, map, contact section, navbar, mobile actions, and footer.
+
+HOW TO USE THIS FILE
+--------------------
+1. Generate one asset at a time in ChatGPT Image Generation.
+2. Copy the complete prompt under the required asset. Each prompt is standalone.
+3. When a prompt asks for a transparent background, download as PNG and preserve transparency.
+4. Generate important photography in at least two variations, then keep the one with the most natural vehicle geometry, faces, hands, road markings, and lighting.
+5. Never ask the image model to add website headings, phone numbers, prices, buttons, city names, or Tamil writing. Add all copy in React/HTML so it stays accurate, responsive, accessible, and editable.
+6. Use AVIF or WebP for photographs and backgrounds after generation. Keep transparent cutouts/icons as optimized WebP or PNG.
+7. Use the suggested filename so implementation remains organized.
+8. If the V TAXI logo must appear in an image, upload public/logo.png as Image 1 and explicitly identify it as the exact logo reference. Do not ask the model to redraw the logo from memory.
+
+MASTER VISUAL DIRECTION
+-----------------------
+Brand character: premium, dependable, welcoming, modern Tamil Nadu mobility; polished enough for executive travel but warm and accessible to families.
+
+Core colors:
+- V TAXI crimson: #DC2626
+- Deep brand red: #991B1B
+- Highlight crimson: #E11D48
+- Ink black: #0A0B12
+- Deep navy: #0F172A
+- Warm gold accent: #F59E0B
+- Clean white: #FFFFFF
+- Cool slate: #64748B
+
+Photography language: authentic contemporary Tamil Nadu, natural South Indian people when people are present, clean modern vehicles, realistic road and city detail, premium commercial travel photography, restrained cinematic contrast, natural skin texture, believable reflections, subtle crimson color echoes, never cheap stock-photo posing.
+
+Global negative direction: no watermarks, no random text, no misspelled words, no fake logos, no visible third-party trademarks, no distorted cars, no duplicated wheels, no malformed headlights, no impossible roads, no left-hand-drive interior, no American or European taxi signs, no yellow New York taxi styling, no oversaturated neon red, no excessive lens flare, no plastic skin, no cartoon look unless the prompt explicitly requests an icon or illustration.
+
+Recommended website crops:
+- Hero desktop: 16:9, ideally 2048 x 1152 or larger.
+- Hero mobile: 4:5, ideally 1536 x 1920 or larger.
+- Section/editorial images: 3:2 or 4:3.
+- Service and destination card images: 4:3.
+- Vehicle cutouts and icons: 1:1 with transparent background.
+- Open Graph/social share cover: 1.91:1, ideally 1200 x 630.
+- Do not bake rounded corners into an image; the website will apply them with CSS.
+
+
+PRIORITY 1 — BRAND AND HERO ASSETS
+==================================
+
+ASSET 01 — Desktop hero background
+Suggested filename: public/images/hero/hero-tamil-nadu-desktop.webp
+Placement: Hero.jsx full-bleed background
+Target ratio: 16:9 landscape
+
+PROMPT:
+Use case: ads-marketing.
+Asset type: premium taxi-service landing-page hero background.
+Primary request: create a cinematic, photorealistic view of a pristine pearl-white premium Indian MPV travelling confidently on a smooth Tamil Nadu highway at early sunrise, representing dependable local and outstation travel.
+Scene/backdrop: contemporary divided highway in Tamil Nadu with subtle palms, distant temple-town silhouette and soft low hills; the location should feel unmistakably South Indian without becoming a tourism collage.
+Subject: one unbranded right-hand-drive premium MPV, realistic proportions, three-quarter front view, tasteful narrow crimson accent ribbon on the lower body, no roof taxi sign.
+Style/medium: premium automotive campaign photography, photorealistic, editorial realism, physically believable vehicle reflections and motion.
+Composition/framing: very wide 16:9 frame; vehicle relatively small in the lower-right third; preserve generous low-detail negative space across the left 55 percent for a large white headline and buttons; preserve calm darker space in the right upper area for a floating white booking card; keep all key details inside the central safe area for responsive cropping.
+Lighting/mood: warm sunrise edge light, subtle road mist, sophisticated optimistic atmosphere, crisp but not harsh.
+Color palette: deep crimson and burgundy color grade, ink-black shadows, warm restrained gold sunrise, clean white vehicle, no orange-heavy cast.
+Materials/textures: realistic metallic paint, glass, rubber, asphalt, light atmospheric haze.
+Constraints: no people, no embedded text, no numbers, no logos, no license-plate writing, no watermark; vehicle must have exactly four correctly placed wheels; keep background readable under white UI text.
+Avoid: busy traffic, dramatic racing speed, luxury-city clichés, oversaturated red fog, landmarks competing with the interface, centered vehicle.
+
+
+ASSET 02 — Mobile hero background
+Suggested filename: public/images/hero/hero-tamil-nadu-mobile.webp
+Placement: Hero.jsx mobile art direction
+Target ratio: 4:5 portrait
+
+PROMPT:
+Use case: ads-marketing.
+Asset type: mobile landing-page hero background for a premium Tamil Nadu taxi service.
+Primary request: create a vertical companion image to a premium desktop taxi campaign: a pristine pearl-white unbranded Indian MPV on a smooth Tamil Nadu highway at sunrise.
+Scene/backdrop: soft South Indian landscape with palms, distant temple-town forms and low haze, contemporary clean road.
+Subject: one realistic right-hand-drive premium MPV seen from a low three-quarter front angle, subtle crimson body accent only.
+Style/medium: photorealistic premium automotive advertising with restrained cinematic grading.
+Composition/framing: 4:5 portrait; keep the top 48 percent dark, calm and low-detail for white headline copy; place the vehicle in the lower-right quadrant, fully visible and not cropped; maintain useful negative space through the center for responsive UI.
+Lighting/mood: optimistic sunrise, warm gold rim light, controlled contrast, calm and dependable rather than fast or aggressive.
+Color palette: #991B1B, #DC2626, #0A0B12, subtle #F59E0B highlights, clean white.
+Constraints: no embedded text, no logo, no taxi roof sign, no license-plate writing, no watermark, no extra vehicles, geometrically correct car.
+Avoid: poster typography, people, extreme motion blur, saturated orange sky, sci-fi styling.
+
+
+ASSET 03 — Brand introduction editorial image
+Suggested filename: public/images/brand/v-taxi-family-journey.webp
+Placement: BrandIntro.jsx, optional wide media panel above the three values
+Target ratio: 3:2 landscape
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: brand-story website image for V TAXI.
+Primary request: an authentic multigenerational Tamil family beginning a comfortable taxi journey, with a courteous South Indian chauffeur helping place a medium suitcase into a clean pearl-white seven-seat MPV.
+Scene/backdrop: tidy residential street in a contemporary Tamil Nadu city, subtle local architecture and greenery, no identifiable private address.
+Subject: grandparents, two parents and one child interacting naturally; chauffeur in refined neutral charcoal attire with a small plain crimson accent, no cap and no fake badge.
+Style/medium: premium candid lifestyle photography, natural expressions, realistic skin and fabric texture, warm editorial quality.
+Composition/framing: 3:2 landscape, people and vehicle grouped toward the right half, clean calmer left side available for optional overlay; show the open luggage area without making the scene look staged.
+Lighting/mood: soft morning daylight, reassuring, respectful, family-friendly and dependable.
+Color palette: clean neutrals with restrained V TAXI crimson, deep navy and warm gold echoes.
+Constraints: culturally authentic contemporary Tamil Nadu styling; realistic hands and faces; no visible brand logos, no text, no watermark, no religious stereotyping.
+Avoid: everyone looking at camera, exaggerated smiles, wedding clothing, excessive luggage, luxury-hotel setting.
+
+
+ASSET 04 — Open Graph and social sharing cover
+Suggested filename: public/images/social/v-taxi-og-cover.webp
+Placement: index.html og:image and twitter:image
+Target size: 1200 x 630
+
+PROMPT:
+Use case: ads-marketing.
+Asset type: Open Graph and social sharing cover background for V TAXI.
+Primary request: create a premium wide campaign visual for a trusted Tamil Nadu taxi brand, showing a clean pearl-white unbranded premium MPV on a sweeping highway with a subtle Tamil Nadu landscape at golden hour.
+Style/medium: photorealistic automotive campaign, polished and credible, not flashy.
+Composition/framing: exact 1200 x 630 style composition; vehicle on the right third; left 52 percent should be a smooth dark-crimson-to-ink area with minimal detail so the supplied V TAXI logo and HTML-designed campaign text can be added later; safe margins of at least 72 pixels.
+Lighting/mood: warm, assured, aspirational, subtle gold edge light.
+Color palette: #DC2626, #991B1B, #0A0B12, #0F172A, restrained #F59E0B, white vehicle.
+Constraints: background only; no words, no logo recreation, no phone number, no watermark, no fake plate writing, no third-party marks.
+Avoid: centered subject, crowded city traffic, tiny landmarks, bright detail behind the future text area.
+
+
+ASSET 05 — Clean app/PWA icon concept
+Suggested filename: public/images/brand/v-taxi-app-icon-master.png
+Placement: source master for favicon and PWA icon exports
+Target ratio: 1:1 square
+
+PROMPT:
+Use case: logo-brand.
+Asset type: premium mobile app icon concept for V TAXI.
+Primary request: create a minimal original square app icon built around one bold geometric letter V that subtly suggests two converging roads and forward movement.
+Style/medium: clean vector-like brand mark, flat and highly legible at 32 pixels, precise geometry, no photorealism.
+Composition/framing: single centered white V-road symbol with generous optical padding inside a softly rounded square; balanced negative space and strong silhouette.
+Color palette: rich crimson gradient limited to #991B1B through #DC2626 with one very subtle #E11D48 highlight; white symbol; optional tiny warm-gold point only if essential.
+Materials/textures: mostly flat; an extremely restrained soft depth is acceptable, but no glossy 3D mockup.
+Constraints: no text other than the single abstract V form; no word TAXI; no car silhouette; no wings; no shield; no watermark; original design only.
+Avoid: bevelled chrome, drop-shadow clutter, complex roads, thin lines, generic navigation-pin icon.
+
+
+ASSET 06 — Existing logo cleanup / transparent master (EDIT PROMPT)
+Suggested filename: public/images/brand/v-taxi-logo-clean-transparent.png
+Placement: navbar, footer, modal; use only if the current logo needs cleanup
+Target ratio: retain source ratio
+
+PROMPT:
+Use case: background-extraction.
+Input images: Image 1 is the official V TAXI logo and is the edit target.
+Primary request: remove only the white background and create a clean high-resolution transparent-background version of the supplied official logo.
+Constraints: preserve the logo design, exact wording, letter shapes, V symbol, proportions, crimson colors and layout exactly; do not redraw, reinterpret, correct, restyle or replace any part; preserve crisp anti-aliased edges; remove the existing grey drop shadow only if it creates a halo; no extra padding beyond a small even transparent margin; no watermark.
+Avoid: new gradients, changed spelling, altered tagline, changed font, 3D mockup, white fringe around edges.
+
+
+PRIORITY 2 — EIGHT TAXI SERVICE CARD PHOTOGRAPHS
+=================================================
+
+Use these as optional 4:3 image headers inside TaxiServices cards. The current Lucide icon can remain as a small UI cue.
+
+ASSET 07 — Local taxi services
+Suggested filename: public/images/services/local-taxi.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 website service-card image for Local Taxi Services.
+Primary request: a pristine pearl-white compact sedan providing a comfortable everyday taxi ride on a clean contemporary Tamil Nadu city street.
+Scene/backdrop: believable South Indian commercial-residential neighborhood, small local shops and greenery softly out of focus, no readable signs.
+Style/medium: premium candid automotive lifestyle photography, realistic and approachable.
+Composition/framing: 4:3 horizontal crop, sedan in three-quarter front view entering the frame with open space in the upper-left; all wheels correct and vehicle fully readable at card size.
+Lighting/mood: bright soft morning light, punctual, convenient, welcoming.
+Color palette: neutral urban tones with restrained crimson accents and clean white vehicle.
+Constraints: right-hand-drive Indian vehicle context, no taxi roof sign, no logo, no text, no plate writing, no watermark, no identifiable vehicle trademark.
+Avoid: traffic jam, racing, dramatic blur, empty studio background.
+
+
+ASSET 08 — Outstation taxi services
+Suggested filename: public/images/services/outstation-taxi.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 website service-card image for Outstation Taxi Services.
+Primary request: a clean white seven-seat Indian MPV cruising on an open Tamil Nadu intercity highway, communicating long-distance comfort and reliability.
+Scene/backdrop: green fields, palms and distant low hills under a spacious sky, subtle highway curve.
+Style/medium: premium travel and automotive photography, realistic proportions and road behavior.
+Composition/framing: 4:3, vehicle placed on the lower-right third and heading into the scene, visual depth along the road, calm negative space at upper-left.
+Lighting/mood: gentle early-morning sunlight, fresh, stress-free, confident.
+Color palette: natural greens and sky balanced by white, deep navy shadows and a restrained crimson accent.
+Constraints: no words, no logos, no license-plate text, no watermark, no dangerous driving, no duplicated vehicle parts.
+Avoid: mountains unlike Tamil Nadu corridors, foreign road markings, sports-car styling.
+
+
+ASSET 09 — Airport transfers
+Suggested filename: public/images/services/airport-transfer.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 website service-card image for Airport Transfers.
+Primary request: a professional pearl-white sedan arriving smoothly at a modern Indian airport terminal drop-off, with one South Indian business traveller beside a medium suitcase.
+Scene/backdrop: contemporary airport curb inspired by Tamil Nadu terminals, glass architecture and a distant aircraft shape softly blurred, no identifiable airport branding.
+Style/medium: premium commercial travel photography, candid and credible.
+Composition/framing: 4:3; car and traveller on the right half; clear calm space on the left; luggage naturally placed and human scale accurate.
+Lighting/mood: clean early daylight, punctual and efficient.
+Color palette: white, slate, navy, controlled crimson accent, small warm-gold light.
+Constraints: no readable terminal signs, airline logos, car logos, text, fake boarding passes, watermark; realistic hands and suitcase.
+Avoid: private jet luxury, crowded curb, chauffeur holding a misspelled name board.
+
+
+ASSET 10 — Railway station transfers
+Suggested filename: public/images/services/railway-transfer.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 website service-card image for Railway Station Transfers.
+Primary request: a clean white sedan waiting at the passenger pickup lane outside a major Tamil Nadu railway station as a small family approaches with practical luggage.
+Scene/backdrop: recognizably Indian railway-station architecture and a softly visible red-and-cream train in the distance, no identifiable station name or rail logo.
+Style/medium: polished documentary travel photography, authentic and unstaged.
+Composition/framing: 4:3, taxi anchored in lower-left, family approaching from mid-right, clear readable silhouettes at small card size.
+Lighting/mood: soft late-afternoon daylight, helpful and dependable.
+Color palette: slate stone, warm cream, restrained crimson, deep navy, clean white.
+Constraints: safe curbside behavior, realistic family and luggage, no readable text, no logos, no watermark.
+Avoid: people on railway tracks, crowded chaos, vintage train imagery.
+
+
+ASSET 11 — Family travel
+Suggested filename: public/images/services/family-travel.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 website service-card image for Family Travel.
+Primary request: a contemporary Tamil family comfortably seated in a spacious clean seven-seat MPV, sharing a natural happy moment before a road trip.
+Scene/backdrop: vehicle interior with subtle Tamil Nadu roadside greenery visible through windows.
+Subject: parents, one child and one grandparent; authentic South Indian appearance; practical modern clothing; seat belts visibly and correctly used.
+Style/medium: warm premium lifestyle photography with natural skin texture and believable cabin dimensions.
+Composition/framing: 4:3 medium-wide cabin view from the open sliding-door area; faces clear but not posed; maintain uncluttered edges for card crop.
+Lighting/mood: soft daylight, safe, caring, relaxed.
+Color palette: warm neutrals, charcoal interior, subtle crimson fabric detail.
+Constraints: right-hand-drive vehicle context; no logos, no text, no watermark; correct hands, seat belts and seating geometry.
+Avoid: party behavior, children unrestrained, stretched cabin, artificial smiles.
+
+
+ASSET 12 — Business travel
+Suggested filename: public/images/services/business-travel.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 website service-card image for Business Travel.
+Primary request: a confident South Indian professional stepping out of a pristine premium white MPV for a business meeting, with a courteous chauffeur holding the door.
+Scene/backdrop: refined contemporary office district in a Tamil Nadu city, glass and stone architecture, no company signage.
+Style/medium: premium executive travel campaign photography, sophisticated and realistic.
+Composition/framing: 4:3; vehicle spans lower frame; professional placed slightly right of center; controlled background blur.
+Lighting/mood: crisp morning light, efficient, discreet and professional.
+Color palette: ink, navy, white and crimson with restrained warm-gold highlight.
+Constraints: modern professional attire appropriate to climate, no logos, no text, no watermark, no luxury-brand grille or badge.
+Avoid: limousine clichés, sunglasses-at-night styling, bodyguard scene, excessive posing.
+
+
+ASSET 13 — Pilgrimage and temple travel
+Suggested filename: public/images/services/pilgrimage-travel.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 website service-card image for Pilgrimage and Temple Travel.
+Primary request: an older South Indian couple and their adult family member arriving peacefully in a clean white MPV near a historic Tamil Nadu temple corridor.
+Scene/backdrop: respectful distant gopuram silhouette and traditional stone streetscape, inspired by Tamil Nadu heritage without copying a single monument exactly.
+Style/medium: premium cultural travel photography, authentic, calm and respectful.
+Composition/framing: 4:3; family and vehicle in foreground, temple architecture softly framed in background; ample breathing room.
+Lighting/mood: gentle golden morning light, serene, safe, spiritually respectful.
+Color palette: warm stone, white, deep crimson, muted gold, navy shadow.
+Constraints: modest contemporary clothing, realistic people, no sacred symbols used decoratively, no readable text, no logos, no watermark.
+Avoid: spectacle, crowds, staged prayer pose, religious costume stereotypes.
+
+
+ASSET 14 — Tour packages
+Suggested filename: public/images/services/tour-packages.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 website service-card image for customized Tamil Nadu Tour Packages.
+Primary request: a clean premium white MPV stopped at a scenic Tamil Nadu viewpoint while a small South Indian family looks toward a layered landscape suggesting coast, heritage and green countryside.
+Scene/backdrop: believable Tamil Nadu travel scenery with palms, a distant heritage silhouette and warm horizon, unified as one real location rather than a collage.
+Style/medium: high-end tourism photography, natural and cinematic.
+Composition/framing: 4:3 wide card crop, vehicle at lower-left, travellers at lower-right, open scenic depth in upper frame.
+Lighting/mood: golden-hour wonder, relaxed discovery and flexibility.
+Color palette: natural landscape tones with restrained crimson and warm gold.
+Constraints: no maps, no words, no logo, no watermark, realistic vehicle and people, no impossible landmark mashup.
+Avoid: postcard collage, oversaturated travel-ad colors, giant monuments.
+
+
+PRIORITY 3 — MATCHED CUSTOM SERVICE ICON SET
+============================================
+
+Generate each icon independently using the same prompt style. Keep the existing Lucide icons if maximum sharpness and performance are more important; use these generated assets only if a richer illustrated card style is desired.
+
+ASSET 15 — Local taxi icon
+Suggested filename: public/images/icons/service-local.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium website service icon. Primary request: a minimal navigation arrow integrated with a small curved city road, symbolizing local taxi travel. Style/medium: clean vector-like duotone icon, bold geometric silhouette, consistent 2.5-pixel visual stroke, subtle premium depth, no photorealism. Composition: centered inside a square with generous padding, isolated on a genuinely transparent background. Color palette: #DC2626 main, #991B1B shadow, tiny #F59E0B accent, optional white negative space. Constraints: no text, no letters, no circle badge, no mockup, no watermark; must remain clear at 24 pixels.
+
+ASSET 16 — Outstation icon
+Suggested filename: public/images/icons/service-outstation.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium website service icon. Primary request: a minimal compass needle combined with a long gently curving highway, symbolizing intercity outstation travel. Style/medium: clean vector-like duotone icon, bold geometric silhouette, consistent 2.5-pixel visual stroke, subtle premium depth. Composition: centered square icon with generous padding on a genuinely transparent background. Color palette: #DC2626, #991B1B and a tiny #F59E0B destination point. Constraints: no text, no map labels, no circle badge, no watermark; highly legible at 24 pixels.
+
+ASSET 17 — Airport transfer icon
+Suggested filename: public/images/icons/service-airport.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium website service icon. Primary request: a simplified ascending passenger aircraft above one smooth road arc and one location point, symbolizing airport taxi transfer. Style/medium: clean vector-like duotone icon with bold silhouette, rounded geometry and subtle premium depth. Composition: centered with generous padding on a genuinely transparent background. Color palette: #DC2626 and #991B1B with a restrained #F59E0B point. Constraints: no airline mark, no words, no circular container, no watermark; recognizable at 24 pixels.
+
+ASSET 18 — Railway transfer icon
+Suggested filename: public/images/icons/service-railway.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium website service icon. Primary request: a modern front-facing passenger train aligned above two short rails and a small pickup location point. Style/medium: clean vector-like duotone website icon, bold simple geometry, consistent visual stroke, subtle premium depth. Composition: centered square icon, generous transparent margin, genuinely transparent background. Color palette: #DC2626, #991B1B and minimal #F59E0B. Constraints: no rail-company branding, no letters, no circle badge, no watermark, clear at 24 pixels.
+
+ASSET 19 — Family travel icon
+Suggested filename: public/images/icons/service-family.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium website service icon. Primary request: three friendly abstract passenger silhouettes of two adults and one child protected by a subtle curved travel arc. Style/medium: refined vector-like duotone icon, inclusive geometric forms, bold clean silhouette, no facial details. Composition: centered with generous padding on a genuinely transparent background. Color palette: #DC2626 main, #991B1B secondary, a tiny warm #F59E0B accent. Constraints: no text, no heart symbol, no badge container, no watermark, readable at 24 pixels.
+
+ASSET 20 — Business travel icon
+Suggested filename: public/images/icons/service-business.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium website service icon. Primary request: a minimal executive briefcase combined with a forward road line, symbolizing coordinated corporate taxi travel. Style/medium: clean vector-like duotone icon, strong geometric silhouette, consistent rounded visual stroke and restrained premium depth. Composition: isolated centered icon with generous padding on a genuinely transparent background. Color palette: #DC2626, #991B1B and tiny #F59E0B clasp detail. Constraints: no currency symbol, no text, no circular badge, no watermark, clear at 24 pixels.
+
+ASSET 21 — Pilgrimage travel icon
+Suggested filename: public/images/icons/service-pilgrimage.png
+PROMPT:
+Use case: stylized-concept. Asset type: respectful premium website service icon. Primary request: a simplified Tamil Nadu temple gopuram silhouette connected to a smooth route line and destination dot, symbolizing pilgrimage transport. Style/medium: minimal vector-like duotone icon, architectural but simplified, bold clean silhouette. Composition: centered square icon with generous padding on a genuinely transparent background. Color palette: #DC2626 and #991B1B with restrained #F59E0B destination dot. Constraints: respectful neutral representation, no deity, no sacred text, no words, no badge, no watermark; clear at 24 pixels.
+
+ASSET 22 — Tour package icon
+Suggested filename: public/images/icons/service-tour.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium website service icon. Primary request: a folded route map with two clean location pins and a sweeping travel path, symbolizing customized tour packages. Style/medium: refined vector-like duotone icon, bold geometric silhouette, consistent rounded stroke and subtle premium depth. Composition: centered with generous transparent margin on a genuinely transparent background. Color palette: #DC2626, #991B1B and small #F59E0B endpoint. Constraints: no labels, no letters, no compass clutter, no badge container, no watermark, readable at 24 pixels.
+
+
+PRIORITY 4 — FOUR VEHICLE CATEGORY CUTOUTS
+==========================================
+
+Use these above the content in each VehicleCategories card. Ask for transparent PNG output and keep the vehicle angle, studio light and scale consistent across all four images.
+
+ASSET 23 — Five-seater sedan cutout
+Suggested filename: public/images/vehicles/sedan-5-seater.png
+
+PROMPT:
+Use case: product-mockup.
+Asset type: transparent vehicle cutout for a premium taxi website card.
+Primary request: a modern compact five-seat Indian sedan suitable for city and airport taxi service, entirely unbranded and not identifiable as one exact manufacturer model.
+Subject: pearl-white sedan with a very subtle deep-crimson accent along the lower side, right-hand-drive context, clean practical wheels, realistic four-door proportions.
+Style/medium: ultra-clean photorealistic automotive studio render, premium catalog quality.
+Composition/framing: front three-quarter view facing slightly right, full vehicle visible including all four correct wheels, centered with even padding, camera at headlight height.
+Lighting/mood: soft professional studio key light, crisp natural reflections, controlled contact shadow.
+Background: genuinely transparent background; retain only a soft realistic ground shadow with transparent falloff.
+Constraints: no driver, no text, no badge, no grille logo, no license-plate writing, no roof taxi sign, no watermark, no cropped bumper.
+Avoid: sports styling, blacked-out windows, distorted wheelbase, floating car.
+
+
+ASSET 24 — Seven-seater family SUV/MPV cutout
+Suggested filename: public/images/vehicles/suv-7-seater.png
+
+PROMPT:
+Use case: product-mockup.
+Asset type: transparent vehicle cutout for a premium taxi website card.
+Primary request: a modern unbranded seven-seat Indian family MPV/crossover suitable for group travel and long-distance taxi journeys.
+Subject: pearl-white three-row vehicle with balanced practical proportions, slightly raised stance, subtle deep-crimson lower-body accent, no resemblance locked to a single exact make.
+Style/medium: photorealistic premium automotive catalog render matching a consistent website vehicle set.
+Composition/framing: front three-quarter view facing slightly right, same camera height and scale as the sedan asset, full vehicle and all four correct wheels visible, generous padding.
+Lighting/mood: soft studio lighting with clean body reflections and refined contact shadow.
+Background: genuinely transparent.
+Constraints: no people, no text, no logos, no plate writing, no taxi sign, no watermark; believable door and window geometry.
+Avoid: off-road aggressiveness, sports body kit, oversized rims, floating vehicle.
+
+
+ASSET 25 — Premium SUV/MPV cutout
+Suggested filename: public/images/vehicles/premium-suv.png
+
+PROMPT:
+Use case: product-mockup.
+Asset type: transparent vehicle cutout for an executive taxi website card.
+Primary request: an elegant large premium Indian MPV/SUV designed for executive highway comfort, unbranded and original rather than a replica of a specific model.
+Subject: pearl-white premium three-row vehicle, refined chrome used sparingly, subtle crimson lower-body accent, confident but welcoming stance.
+Style/medium: high-end photorealistic automotive studio render, luxury catalog finish with accurate materials.
+Composition/framing: front three-quarter angle facing slightly right, full vehicle visible, same scale and camera as the other category cutouts, accurate wheels and perspective.
+Lighting/mood: sculpted softbox highlights, quiet premium confidence, natural contact shadow.
+Background: genuinely transparent.
+Constraints: no logos, no text, no plate writing, no taxi roof sign, no watermark, no black void windows, no cropped parts.
+Avoid: exotic luxury-car styling, excessive chrome, aggressive grille, oversized wheels.
+
+
+ASSET 26 — Tempo Traveller cutout
+Suggested filename: public/images/vehicles/tempo-traveller.png
+
+PROMPT:
+Use case: product-mockup.
+Asset type: transparent vehicle cutout for a coming-soon group travel card.
+Primary request: a clean modern unbranded high-roof 12-to-17-seat Indian tempo traveller/minibus configured for comfortable group tours.
+Subject: pearl-white passenger minibus with long side windows, practical body proportions, subtle deep-crimson belt accent, clean wheels, no commercial cargo styling.
+Style/medium: premium photorealistic vehicle catalog render matching the sedan and MPV asset set.
+Composition/framing: front three-quarter view facing slightly right, slightly zoomed out so the whole longer body fits, same camera height and lighting language as the other cutouts.
+Lighting/mood: soft studio lighting, clean reflections, believable contact shadow.
+Background: genuinely transparent.
+Constraints: no text, no manufacturer logo, no plate writing, no passengers, no watermark; correct axle and wheel count, realistic windows and doors.
+Avoid: school bus appearance, ambulance styling, cargo van, stretched geometry.
+
+
+ASSET 27 — Vehicle section abstract background
+Suggested filename: public/images/backgrounds/vehicle-section-dark.webp
+Placement: VehicleCategories.jsx section background
+Target ratio: 16:9 landscape
+
+PROMPT:
+Use case: stylized-concept.
+Asset type: dark premium website section background behind vehicle cards and white text.
+Primary request: a refined abstract mobility environment made from faint flowing highway lines, subtle technical grid geometry and soft atmospheric depth, evoking night travel without showing a literal vehicle.
+Style/medium: elegant cinematic 3D abstract render, matte, restrained and modern.
+Composition/framing: ultra-wide 16:9 with no central focal object; low-detail center and upper-middle for headings; faint directional lines may flow from lower-left to upper-right; seamless-looking edge falloff for responsive crop.
+Lighting/mood: deep, confident, premium night atmosphere with soft crimson aurora and a tiny warm-gold accent.
+Color palette: predominantly #0A0B12 and #0F172A, controlled #991B1B and #DC2626 glow, less than five percent #F59E0B.
+Constraints: no text, no logo, no icons, no cars, no watermark; sufficient darkness for white text and cards.
+Avoid: neon cyberpunk, bright red center, busy city skyline, visible lens flares.
+
+
+PRIORITY 5 — LOCAL AND OUTSTATION FEATURE IMAGES
+================================================
+
+ASSET 28 — Local city travel feature
+Suggested filename: public/images/journeys/local-city-travel.webp
+Placement: LocalOutstation.jsx local card header
+Target ratio: 3:2 landscape
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: premium website feature image for local city taxi service.
+Primary request: a clean white sedan making a calm pickup on a contemporary Tamil Nadu neighborhood street for an everyday family appointment.
+Scene/backdrop: tree-lined mixed residential street with subtle clinic and office cues far in the background, no readable signs.
+Subject: South Indian adult helping an older family member enter the rear seat safely; courteous driver visible only naturally, not posing.
+Style/medium: candid premium lifestyle photography, realistic and compassionate.
+Composition/framing: 3:2 horizontal, action in right two-thirds with clean upper-left; show easy entry and vehicle cleanliness.
+Lighting/mood: bright diffused morning, dependable and caring.
+Color palette: clean whites, slate, restrained crimson and natural greenery.
+Constraints: correct vehicle door and human anatomy, no text, no logos, no watermark, no medical drama.
+Avoid: wheelchair imagery unless accurate, staged handshake, luxury-hotel styling.
+
+
+ASSET 29 — Outstation highway travel feature
+Suggested filename: public/images/journeys/outstation-highway.webp
+Placement: LocalOutstation.jsx outstation card header
+Target ratio: 3:2 landscape
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: premium website feature image for outstation taxi journeys.
+Primary request: an elegant white seven-seat MPV travelling on a broad Tamil Nadu highway during golden hour, suggesting safe multi-city family travel and planned comfort breaks.
+Scene/backdrop: highway across green agricultural land with palms, distant temple-town skyline and soft hills; one clean roadside rest area subtly visible far ahead.
+Style/medium: cinematic yet natural automotive travel photography.
+Composition/framing: 3:2, elevated rear three-quarter viewpoint, vehicle in lower-left following the road toward the right, generous scenic depth.
+Lighting/mood: warm late-afternoon, relaxed, capable, secure.
+Color palette: natural green and warm stone with restrained crimson, white and deep navy.
+Constraints: no words, no logos, no plate text, no watermark, no unsafe overtaking, accurate road markings.
+Avoid: race-ad energy, extreme motion blur, foreign highway signs.
+
+
+PRIORITY 6 — FIVE TAMIL NADU DESTINATION CARD IMAGES
+===================================================
+
+Keep these as one coherent editorial set: same restrained grade, no postcard text, no collages, no exaggerated saturation.
+
+ASSET 30 — Chennai
+Suggested filename: public/images/destinations/chennai.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 destination card for Chennai taxi service.
+Primary request: an elegant contemporary Chennai cityscape blending a clean coastal arterial road, subtle Marina shoreline atmosphere and modern urban architecture, with a small pearl-white taxi sedan moving naturally through the scene.
+Style/medium: premium editorial city photography, photorealistic and geographically plausible.
+Composition/framing: 4:3, strong leading road line, taxi small in lower-right, city and coast balanced without collage effects.
+Lighting/mood: soft blue-hour sunrise, metropolitan, dependable and welcoming.
+Color palette: cool slate-blue, clean white, subtle crimson reflection and warm-gold horizon.
+Constraints: no readable signs, no logos, no text, no watermark, no landmark mashup, correct Indian traffic context.
+Avoid: generic Dubai skyline, oversaturated beach, huge taxi dominating view.
+
+
+ASSET 31 — Trichy
+Suggested filename: public/images/destinations/trichy.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 destination card for Tiruchirappalli taxi service.
+Primary request: a premium editorial view of Trichy with Rockfort rising in the middle distance and a clean city road in the foreground, where a small pearl-white taxi MPV travels toward the city.
+Style/medium: photorealistic destination photography with architectural accuracy and natural atmosphere.
+Composition/framing: 4:3, Rockfort clearly recognizable but not oversized, road leading from lower-left, vehicle small and secondary.
+Lighting/mood: warm early-morning light, historic, connected and active.
+Color palette: natural granite and terracotta, soft blue, clean white, restrained crimson and gold.
+Constraints: no text, no logo, no watermark, no fantasy architecture, no collage.
+Avoid: dramatic storm, crowded festival, temple details invented at random.
+
+
+ASSET 32 — Thanjavur
+Suggested filename: public/images/destinations/thanjavur.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 destination card for Thanjavur taxi service.
+Primary request: a respectful golden-hour view inspired by the Brihadeeswarar Temple approach and Thanjavur heritage, with a clean white taxi sedan on a nearby road at a discreet distance.
+Style/medium: high-end cultural travel photography, photorealistic, dignified and architecturally believable.
+Composition/framing: 4:3, temple tower as the visual anchor in the upper-left two-thirds, vehicle small in lower-right, clean foreground and breathing room.
+Lighting/mood: warm stone glow, cultural pride, peaceful and premium.
+Color palette: sandstone, muted green, crimson accent, deep navy shadow, warm gold.
+Constraints: no text, no logo, no watermark, no disrespectful vehicle placement inside sacred pedestrian space, no architectural distortion.
+Avoid: tourism collage, festival crowd, oversaturated orange.
+
+
+ASSET 33 — Madurai
+Suggested filename: public/images/destinations/madurai.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 destination card for Madurai taxi service.
+Primary request: an atmospheric contemporary Madurai streetscape with a distant, accurately proportioned Meenakshi temple gopuram visible above the city and a pearl-white taxi MPV travelling in the foreground.
+Style/medium: premium documentary destination photography, detailed but natural.
+Composition/framing: 4:3, layered street depth, gopuram in upper-right background, clean vehicle in lower-left, no single element cropped awkwardly.
+Lighting/mood: soft early-evening golden light, vibrant yet composed.
+Color palette: warm heritage colors balanced with slate, white and restrained V TAXI crimson.
+Constraints: no readable shop signs, no logos, no text, no watermark, authentic Indian traffic flow, no fantasy temple colors.
+Avoid: chaotic traffic, giant temple filling frame, neon-night treatment.
+
+
+ASSET 34 — Rameswaram
+Suggested filename: public/images/destinations/rameswaram.webp
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: 4:3 destination card for Rameswaram taxi service.
+Primary request: a cinematic yet realistic coastal journey near Rameswaram, with the Pamban sea bridge atmosphere, turquoise-grey water and a small pearl-white taxi SUV crossing a road bridge.
+Style/medium: premium natural travel photography, geographically believable and serene.
+Composition/framing: 4:3, sweeping bridge line from lower-left toward upper-right, taxi small but visible, sea and sky providing clean negative space.
+Lighting/mood: soft sunrise with gentle haze, sacred coastal calm and a sense of arrival.
+Color palette: muted ocean blue, stone grey, white, deep crimson accent and warm-gold sunlight.
+Constraints: no text, no logos, no watermark, no impossible bridge structure, no dramatic crashing waves.
+Avoid: tropical resort look, oversaturated cyan, giant vehicle, multiple landmarks combined.
+
+
+ASSET 35 — Tamil Nadu corridor map illustration
+Suggested filename: public/images/maps/tamil-nadu-corridor.png
+Placement: optional replacement/enhancement for ServiceAreas.jsx corridor visual
+Target ratio: 4:5 portrait
+
+PROMPT:
+Use case: infographic-diagram.
+Asset type: premium portrait route-map illustration for a taxi website.
+Primary request: a clean simplified silhouette map of Tamil Nadu with five glowing route nodes positioned approximately for Chennai, Tiruchirappalli, Thanjavur, Madurai and Rameswaram, connected by an elegant route network.
+Style/medium: polished vector-like infographic, minimal geographic silhouette, premium dark dashboard aesthetic.
+Composition/framing: 4:5 portrait, centered state silhouette with ample safe margin, Chennai node high northeast, Trichy and Thanjavur central-east, Madurai south-central, Rameswaram southeast; visually clear route hierarchy.
+Color palette: deep #0A0B12 background, thin #DC2626 routes, #F59E0B node highlights, soft white coastline detail.
+Text: no text and no labels; labels will be placed in HTML.
+Constraints: geographically recognizable Tamil Nadu outline, exactly five primary nodes, no neighboring state labels, no logo, no watermark.
+Avoid: detailed road atlas, satellite map, extra nodes, fake typography, bright neon cyberpunk.
+
+
+PRIORITY 7 — BRAND VALUE AND STATISTIC ICONS
+=============================================
+
+ASSET 36 — Customer Focused value icon
+Suggested filename: public/images/icons/value-customer.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium website value icon. Primary request: three inclusive passenger silhouettes gathered around a subtle central V-shaped path, representing customer-focused travel. Style: minimal vector-like duotone icon, friendly geometric forms, strong silhouette, consistent rounded stroke. Composition: centered on a genuinely transparent background with generous padding. Palette: #DC2626 and #991B1B with minimal #F59E0B. Constraints: no facial details, no text, no circle badge, no watermark, legible at 24 pixels.
+
+ASSET 37 — Dependable Service value icon
+Suggested filename: public/images/icons/value-dependable.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium website value icon. Primary request: a clean shield containing a small check and a subtle road line, representing dependable taxi service. Style: minimal vector-like duotone icon with precise rounded geometry and bold silhouette. Composition: centered with generous padding on a genuinely transparent background. Palette: #DC2626, #991B1B and a tiny warm-gold accent. Constraints: no words, no lock symbol, no badge container behind the icon, no watermark, readable at 24 pixels.
+
+ASSET 38 — Growing Network value icon
+Suggested filename: public/images/icons/value-network.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium website value icon. Primary request: three location nodes connected by an upward sweeping route, suggesting an expanding Tamil Nadu taxi network. Style: refined vector-like duotone icon, minimal rounded geometry and consistent stroke. Composition: centered with generous padding on a genuinely transparent background. Palette: #DC2626 route, #991B1B structure, #F59E0B destination node. Constraints: no map labels, no text, no globe, no circle badge, no watermark, clear at 24 pixels.
+
+ASSET 39 — Five cities statistic icon
+Suggested filename: public/images/icons/stat-cities.png
+PROMPT:
+Use case: stylized-concept. Asset type: small premium statistic icon. Primary request: one elegant location pin containing five tiny evenly arranged nodes, communicating five connected cities. Style: minimal vector-like duotone icon with bold readable geometry. Composition: centered transparent square with generous padding. Palette: #DC2626 and #991B1B with #F59E0B nodes. Constraints: exactly five nodes, no numbers, no text, no badge background, no watermark, clear at 20 pixels.
+
+ASSET 40 — Four vehicle classes statistic icon
+Suggested filename: public/images/icons/stat-vehicles.png
+PROMPT:
+Use case: stylized-concept. Asset type: small premium statistic icon. Primary request: a simplified front-view vehicle silhouette with four subtle layered roof lines indicating four vehicle categories. Style: minimal vector-like duotone icon, clean bold geometry, not a detailed car illustration. Composition: centered transparent square. Palette: #DC2626 and #991B1B with tiny #F59E0B headlight accents. Constraints: no number, no logo, no text, no badge, no watermark, clear at 20 pixels.
+
+ASSET 41 — Eight service types statistic icon
+Suggested filename: public/images/icons/stat-services.png
+PROMPT:
+Use case: stylized-concept. Asset type: small premium statistic icon. Primary request: a clean two-by-two service grid whose four cells each contain one tiny route point, visually suggesting a broad organized service catalog without literal detail. Style: minimal vector-like duotone icon with rounded geometry. Composition: centered on genuinely transparent background. Palette: #DC2626 and #991B1B with restrained #F59E0B dots. Constraints: no number, no text, no app-screen frame, no watermark, readable at 20 pixels.
+
+ASSET 42 — 24/7 assistance statistic icon
+Suggested filename: public/images/icons/stat-support.png
+PROMPT:
+Use case: stylized-concept. Asset type: small premium statistic icon. Primary request: a refined customer-support headset combined with a continuous circular clock arc, communicating always-available booking assistance. Style: clean vector-like duotone icon, simple bold silhouette, consistent rounded stroke. Composition: centered on a genuinely transparent background with generous padding. Palette: #DC2626 and #991B1B with a small #F59E0B clock point. Constraints: no digits, no letters, no face, no badge, no watermark, clear at 20 pixels.
+
+
+PRIORITY 8 — TEN WHY V TAXI ICONS
+==================================
+
+These replace the numeric squares only if a more visual design is wanted. Keep every icon consistent: transparent background, same scale, same rounded vector-like construction.
+
+ASSET 43 — Comfortable Vehicle Options
+Suggested filename: public/images/icons/why-comfort.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium trust-card icon. Primary request: a comfortable car seat with one subtle sparkle and a flowing support contour, symbolizing a clean fatigue-free cabin. Style: minimal vector-like duotone, bold rounded geometry, consistent 2.5-pixel visual stroke. Composition: centered on genuinely transparent background. Palette: #DC2626, #991B1B, tiny #F59E0B sparkle. Constraints: no text, no people, no badge, no watermark, legible at 28 pixels.
+
+ASSET 44 — Five- and seven-seater availability
+Suggested filename: public/images/icons/why-capacity.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium trust-card icon. Primary request: two simplified vehicle silhouettes, one compact sedan and one larger three-row MPV, aligned cleanly to represent multiple passenger capacities. Style: minimal vector-like duotone with bold clear forms. Composition: centered transparent square with generous padding. Palette: #DC2626 and #991B1B with tiny #F59E0B accent. Constraints: no digits, no logos, no text, no watermark, readable at 28 pixels.
+
+ASSET 45 — Local and outstation solutions
+Suggested filename: public/images/icons/why-local-outstation.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium trust-card icon. Primary request: a short city route and a long highway route branching from one shared origin pin, symbolizing both local and outstation service. Style: minimal vector-like duotone icon, clean rounded geometry. Composition: centered on genuinely transparent background. Palette: #DC2626, #991B1B and #F59E0B destination point. Constraints: no labels, no text, no map background, no watermark, clear at 28 pixels.
+
+ASSET 46 — Easy telephone enquiry
+Suggested filename: public/images/icons/why-phone.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium trust-card icon. Primary request: a modern telephone handset connected to a small check mark by one smooth line, representing simple direct booking enquiry. Style: minimal vector-like duotone icon with bold silhouette and rounded ends. Composition: centered on transparent background. Palette: #DC2626 and #991B1B with tiny #F59E0B check. Constraints: no smartphone screen, no digits, no text, no badge, no watermark, clear at 28 pixels.
+
+ASSET 47 — Family-friendly travel
+Suggested filename: public/images/icons/why-family.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium trust-card icon. Primary request: two adult and two child passenger silhouettes under a gentle protective travel arc, representing family-friendly transport. Style: minimal vector-like duotone, warm inclusive geometry, no facial details. Composition: centered on genuinely transparent background. Palette: #DC2626, #991B1B and minimal #F59E0B. Constraints: no heart, no text, no badge, no watermark, readable at 28 pixels.
+
+ASSET 48 — Professional customer assistance
+Suggested filename: public/images/icons/why-assistance.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium trust-card icon. Primary request: a customer-support headset beside a concise check-list card, representing professional itinerary coordination. Style: refined vector-like duotone icon, clean bold shapes and consistent rounded stroke. Composition: centered transparent square. Palette: #DC2626 and #991B1B with #F59E0B check accent. Constraints: no person portrait, no words, no tiny unreadable lines, no badge, no watermark, clear at 28 pixels.
+
+ASSET 49 — Transparent trip communication
+Suggested filename: public/images/icons/why-transparent.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium trust-card icon. Primary request: two clean speech bubbles containing a route line and a check mark, communicating clear upfront trip details. Style: minimal vector-like duotone icon with precise rounded geometry. Composition: centered on genuinely transparent background. Palette: #DC2626, #991B1B and small #F59E0B endpoint. Constraints: no words, no currency sign, no badge, no watermark, readable at 28 pixels.
+
+ASSET 50 — Service across important Tamil Nadu cities
+Suggested filename: public/images/icons/why-tamil-nadu.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium trust-card icon. Primary request: a simplified recognizable Tamil Nadu outline with five connected location nodes, representing the initial city network. Style: minimal vector-like duotone icon, clean silhouette and bold route line. Composition: centered on transparent background with generous margin. Palette: #DC2626 outline, #991B1B route, #F59E0B nodes. Constraints: exactly five nodes, no labels, no text, no watermark, legible at 28 pixels.
+
+ASSET 51 — Premium travel options
+Suggested filename: public/images/icons/why-premium.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium trust-card icon. Primary request: a refined large MPV silhouette paired with one understated four-point sparkle, symbolizing premium executive comfort. Style: minimal vector-like duotone icon, elegant but not flashy. Composition: centered on genuinely transparent background. Palette: #DC2626, #991B1B and tiny #F59E0B sparkle. Constraints: no crown, no diamond, no brand logo, no text, no watermark, clear at 28 pixels.
+
+ASSET 52 — Upcoming digital booking experience
+Suggested filename: public/images/icons/why-digital.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium trust-card icon. Primary request: a simple smartphone outline containing a route path from pickup dot to destination pin, representing future digital taxi booking. Style: minimal vector-like duotone with bold clean geometry. Composition: centered on genuinely transparent background. Palette: #DC2626 and #991B1B with #F59E0B destination dot. Constraints: no words, no fake interface labels, no app-store marks, no badge, no watermark, readable at 28 pixels.
+
+
+PRIORITY 9 — FOUR PRE-LAUNCH OFFER ICONS
+=========================================
+
+ASSET 53 — First-ride introductory benefit
+Suggested filename: public/images/icons/offer-first-ride.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium launch-offer icon. Primary request: a clean ticket shape combined with a small forward road arrow, symbolizing a first-ride introductory benefit. Style: minimal vector-like duotone icon, refined rounded geometry, subtle premium depth. Composition: centered on genuinely transparent background. Palette: #DC2626, #991B1B and #F59E0B accent. Constraints: no percentage sign, no price, no words, no watermark, clear at 32 pixels.
+
+ASSET 54 — Outstation trip advantage
+Suggested filename: public/images/icons/offer-outstation.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium launch-offer icon. Primary request: a long curving route ending in a highlighted location pin with a small benefit sparkle, representing priority outstation pricing. Style: minimal vector-like duotone icon, bold rounded silhouette. Composition: centered on transparent background. Palette: #DC2626 route, #991B1B structure, #F59E0B pin and sparkle. Constraints: no currency symbol, no words, no map labels, no watermark, readable at 32 pixels.
+
+ASSET 55 — Priority booking access
+Suggested filename: public/images/icons/offer-priority.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium launch-offer icon. Primary request: a calendar page with a clean check and a small fast-forward route accent, representing early priority booking access. Style: minimal vector-like duotone icon with strong simple geometry. Composition: centered on genuinely transparent background. Palette: #DC2626, #991B1B and #F59E0B highlight. Constraints: no numbers, no letters, no words, no watermark, clear at 32 pixels.
+
+ASSET 56 — Referral launch privileges
+Suggested filename: public/images/icons/offer-referral.png
+PROMPT:
+Use case: stylized-concept. Asset type: premium launch-offer icon. Primary request: three connected passenger silhouettes with a small gift ribbon accent, representing family and friend referral privileges. Style: clean vector-like duotone icon, friendly rounded geometric forms. Composition: centered on transparent background with generous padding. Palette: #DC2626, #991B1B and #F59E0B ribbon. Constraints: no text, no currency, no social-media logo, no watermark, readable at 32 pixels.
+
+
+PRIORITY 10 — APP, FORM, CONTACT AND FOOTER VISUALS
+===================================================
+
+ASSET 57 — Coming-soon app presentation visual
+Suggested filename: public/images/app/v-taxi-app-presentation.webp
+Placement: ComingSoonApp.jsx, optional replacement for the code mock phone
+Target ratio: 4:5 portrait
+
+PROMPT:
+Use case: ui-mockup.
+Asset type: polished portrait product presentation for a coming-soon taxi booking app.
+Primary request: a premium generic modern smartphone floating at a slight three-quarter angle and displaying a practical dark-mode taxi-booking interface for pickup, destination and vehicle category selection.
+Interface content: use simple abstract UI blocks, route dots, map line, sedan and MPV silhouettes; keep any microcopy absent or represented by clean neutral bars because real interface text will be added in HTML.
+Style/medium: shippable high-fidelity product mockup, elegant realistic phone hardware, not concept-art fantasy.
+Composition/framing: 4:5 portrait, phone centered slightly left, generous dark negative space around it, subtle crimson glass panels behind the device, full phone visible.
+Lighting/mood: sophisticated studio glow, premium technology, trustworthy and simple.
+Color palette: #0A0B12 and #0F172A interface, #DC2626 primary action, #E11D48 glow, tiny #F59E0B status accent, white and slate UI.
+Constraints: no app-store logos, no readable fake text, no company logo recreation, no hands, no watermark, no impossible transparent phone, practical interface hierarchy.
+Avoid: neon cyberpunk, crypto dashboard, dense map labels, giant glossy reflections.
+
+
+ASSET 58 — App section dark abstract background
+Suggested filename: public/images/backgrounds/app-section-dark.webp
+Placement: ComingSoonApp.jsx full section background
+Target ratio: 16:9 landscape
+
+PROMPT:
+Use case: stylized-concept.
+Asset type: premium dark website background for a future taxi app section.
+Primary request: an abstract digital mobility landscape formed by extremely subtle route paths, soft location-node glows and layered glass-like curves, suggesting a connected booking platform.
+Style/medium: refined cinematic 3D abstract render, matte, minimal, high-end technology branding.
+Composition/framing: wide 16:9, no dominant central object; slightly brighter glow behind the left phone area while the right side stays calm and dark for white heading and feature text; safe for responsive crops.
+Lighting/mood: deep, advanced, reassuring rather than futuristic or aggressive.
+Color palette: 75 percent #0A0B12 and #0F172A, subtle #991B1B and #DC2626, tiny #F59E0B nodes.
+Constraints: no text, no logo, no phone, no car, no watermark, high contrast for overlaid UI.
+Avoid: circuit-board cliché, bright neon blue, cyberpunk city, busy particles.
+
+
+ASSET 59 — Enquiry form supporting illustration
+Suggested filename: public/images/contact/enquiry-journey.webp
+Placement: EnquiryForm.jsx, optional side panel on large screens
+Target ratio: 4:5 portrait
+
+PROMPT:
+Use case: stylized-concept.
+Asset type: premium supporting illustration for a travel enquiry form.
+Primary request: a refined isometric-but-natural illustration showing a pearl-white taxi following a clear route from a pickup home to a destination pin, with a small suitcase and calendar represented as secondary visual cues.
+Style/medium: polished 3D editorial illustration with soft realistic materials, clean geometry, sophisticated rather than playful.
+Composition/framing: 4:5 portrait; route creates a graceful V-like movement from lower-left to upper-right; generous empty margins; no separate floating interface panels.
+Lighting/mood: bright soft studio light, easy and reassuring.
+Color palette: off-white background, #DC2626 route, #991B1B accents, deep navy shadows, tiny #F59E0B destination glow.
+Constraints: no text, no numbers, no logos, no people, no watermark, no map labels.
+Avoid: toy-like clay style, excessive miniature buildings, bright rainbow colors.
+
+
+ASSET 60 — Contact section background accent
+Suggested filename: public/images/backgrounds/contact-route-glow.webp
+Placement: ContactQuickActions.jsx subtle top/background layer
+Target ratio: 16:9 landscape
+
+PROMPT:
+Use case: stylized-concept.
+Asset type: subtle light website background accent for a contact and FAQ section.
+Primary request: a minimal off-white surface with an elegant faint route line forming a broad shallow arc, two small location points and a soft crimson radial glow near the top center.
+Style/medium: premium matte abstract background, nearly flat with subtle paper grain and very soft depth.
+Composition/framing: wide 16:9; keep the middle 70 percent almost empty for contact cards and FAQ content; details should fade gently at edges.
+Color palette: #FFFFFF and cool slate-white, very pale #DC2626, tiny restrained #F59E0B point.
+Constraints: no text, no logo, no icon, no car, no watermark; low contrast so foreground remains dominant.
+Avoid: visible map, strong lines, red wash, noisy texture.
+
+
+ASSET 61 — Footer dark route texture
+Suggested filename: public/images/backgrounds/footer-route-texture.webp
+Placement: Footer.jsx background
+Target ratio: 16:9 landscape; should crop safely on tall footer
+
+PROMPT:
+Use case: stylized-concept.
+Asset type: dark understated footer background texture for a premium taxi brand.
+Primary request: a seamless-looking deep navy-to-ink background with very faint geometric grid lines and one low-opacity route curve running across the lower third.
+Style/medium: minimal premium digital texture, matte and subtle.
+Composition/framing: no focal point; even edge behavior; center and columns remain extremely low-detail for footer links; route line may end in a tiny crimson point near the far right.
+Color palette: #070D1E, #0A0B12, #0F172A, less than five percent #DC2626.
+Constraints: no text, no logo, no icons, no car, no watermark; must tile or crop without obvious seams.
+Avoid: star field, cyberpunk neon, bright red areas, high-contrast grid.
+
+
+ASSET 62 — Enquiry success emblem
+Suggested filename: public/images/icons/enquiry-success.png
+Placement: EnquiryForm.jsx and EnquiryModal.jsx success state
+Target ratio: 1:1 transparent
+
+PROMPT:
+Use case: stylized-concept.
+Asset type: premium success-state emblem for a taxi enquiry form.
+Primary request: a clean check mark integrated with a small forward route and destination dot, communicating that a travel enquiry was successfully received.
+Style/medium: refined vector-like duotone emblem, bold geometric silhouette, subtle premium depth.
+Composition/framing: centered with generous padding on a genuinely transparent background.
+Color palette: deep emerald for the check, #DC2626 route accent and tiny #F59E0B destination point; balanced with the red V TAXI theme.
+Constraints: no text, no circle background, no confetti, no watermark; clear at 48 pixels.
+Avoid: generic emoji look, glossy badge, excessive celebration.
+
+
+OPTIONAL CAMPAIGN ASSETS
+========================
+
+ASSET 63 — Pre-launch wide banner background
+Suggested filename: public/images/offers/prelaunch-banner.webp
+Placement: PreLaunchOffer.jsx final dark CTA panel
+Target ratio: 3:1 wide
+
+PROMPT:
+Use case: ads-marketing.
+Asset type: ultra-wide premium pre-launch CTA banner background.
+Primary request: a dark elegant travel campaign background featuring the faint rear three-quarter silhouette of a premium white MPV and a flowing crimson route light that ends in a small warm-gold destination point.
+Style/medium: photorealistic automotive detail blended with restrained cinematic abstraction.
+Composition/framing: 3:1 ultra-wide; vehicle silhouette and route detail confined to the far-right 35 percent; left 60 percent dark and low-detail for headline, body copy and a button; all elements safe within crop.
+Lighting/mood: exclusive early-access mood, confident and premium.
+Color palette: #0A0B12, #0F172A, #991B1B, #DC2626 and minimal #F59E0B.
+Constraints: no words, no logo, no license text, no watermark, no bright detail behind future copy.
+Avoid: nightclub neon, luxury-car badge, coupon graphics, confetti.
+
+
+ASSET 64 — Booking desk/customer assistance portrait
+Suggested filename: public/images/contact/booking-assistance.webp
+Placement: optional Hero booking card or contact section enhancement
+Target ratio: 1:1 square
+
+PROMPT:
+Use case: photorealistic-natural.
+Asset type: premium customer-assistance portrait for a Tamil Nadu taxi booking service.
+Primary request: a friendly professional South Indian booking coordinator wearing a discreet headset, seated at a clean modern support desk and listening attentively.
+Scene/backdrop: softly blurred premium operations workspace with one subtle route map glow, no readable screens.
+Style/medium: authentic corporate lifestyle photography, natural skin texture, credible and welcoming.
+Composition/framing: square head-and-shoulders portrait, eye-level, subject slightly off-center, comfortable negative space; natural expression, not exaggerated.
+Lighting/mood: soft flattering office daylight, competent, calm and available.
+Color palette: neutral charcoal and white with a tasteful crimson clothing or desk accent and tiny warm-gold light.
+Constraints: no visible company logo, no screen text, no watermark, realistic headset and hands, contemporary Tamil Nadu professional.
+Avoid: call-center stock-photo grin, crossed arms, suit-and-tie formality, blue corporate color cast.
+
+
+ASSET 65 — Social/community visual
+Suggested filename: public/images/social/v-taxi-community.webp
+Placement: optional SocialConnection.jsx background or header image
+Target ratio: 3:2 landscape
+
+PROMPT:
+Use case: ads-marketing.
+Asset type: premium social-community website visual for V TAXI.
+Primary request: a warm candid moment of diverse South Indian travellers—young professional, family and senior passenger—sharing travel tips and checking a route together beside a clean white MPV.
+Scene/backdrop: tasteful Tamil Nadu roadside stop with greenery and contemporary architecture, no readable signs.
+Style/medium: high-quality lifestyle campaign photography, inclusive, natural and credible.
+Composition/framing: 3:2, group placed on the right two-thirds, clear left space for a section heading if needed; relaxed body language and correct hands.
+Lighting/mood: soft late-afternoon light, connected, optimistic and community-minded.
+Color palette: natural neutrals, V TAXI crimson accents, white, navy and restrained warm gold.
+Constraints: no phones displaying fake social media, no platform logos, no text, no watermark, no staged pointing at camera.
+Avoid: influencer clichés, party scene, excessive number of people, matching uniforms.
+
+
+DO NOT GENERATE THESE AS RASTER IMAGES
+======================================
+
+The following assets already work better as code-native SVG/HTML and should stay that way:
+- Navigation arrows, chevrons, close/menu icons, phone, send, check marks, location pins and form icons: keep Lucide React icons for perfect sharpness and accessibility.
+- Instagram, Facebook, YouTube and WhatsApp marks: use official/current SVG assets, not AI-generated approximations.
+- Google Maps viewport: keep the real map embed; never replace it with a generated map if directions are expected to work.
+- Headlines, city names, Tamil text, phone numbers, offer labels, buttons and legal copy: keep as HTML text.
+- Booking app screen copy: keep the current React/CSS mockup or build a real UI; use Asset 57 only as a decorative product presentation.
+- Grid, dots, grain, aurora glows and gradients that already exist in src/index.css: CSS is lighter, responsive and sharper. Generated backgrounds 27, 58, 60 and 61 are optional upgrades, not requirements.
+
+
+FINAL CONSISTENCY CHECK BEFORE USING AN IMAGE
+=============================================
+
+For every generated asset confirm all of the following:
+- It looks like contemporary Tamil Nadu, not a generic foreign taxi campaign.
+- Cars have believable proportions, correct wheels, realistic windows and no fake manufacturer badges.
+- People have natural hands, faces, expressions and culturally plausible clothing.
+- The image contains no accidental text, watermark, fake logo or unreadable license plate.
+- Crimson is an accent, not an overpowering red filter.
+- White and navy maintain the clean premium balance of the current website.
+- The crop preserves the planned text/UI safe zone on desktop and mobile.
+- Card assets remain recognizable at small sizes.
+- Icon backgrounds are truly transparent when requested.
+- All image text remains in React/HTML, never baked into photography.
+
+
+SUGGESTED GENERATION ORDER
+==========================
+
+1. Asset 01 and 02 — establish the campaign look.
+2. Assets 23 to 26 — establish the consistent vehicle set.
+3. Assets 07 to 14 — build the service-card photography.
+4. Assets 30 to 35 — build the Tamil Nadu destination system.
+5. Assets 15 to 22, 36 to 56 and 62 — only if replacing Lucide/numeric icons with custom art.
+6. Assets 57 to 61 — optional section-level polish.
+7. Assets 04, 63, 64 and 65 — campaign, social and conversion enhancements.
+
